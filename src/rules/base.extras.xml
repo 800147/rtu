@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xkbConfigRegistry SYSTEM "xkb.dtd">
+<xkbConfigRegistry>
+  <modelList/>
+  <layoutList>
+    ...
+    <layout>
+      <configItem popularity="exotic">
+        <name>ru</name>
+        <shortDescription>ru</shortDescription>
+        <description>Russian</description>
+        <countryList>
+          <iso3166Id>RU</iso3166Id>
+        </countryList>
+        <languageList>
+          <iso639Id>rus</iso639Id>
+        </languageList>
+      </configItem>
+      <variantList>
+        ...
+        <variant>
+          <configItem popularity="exotic">
+            <name>ru_typo</name>
+            <shortDescription>ru</shortDescription>
+            <description>Russian (with typographic symbols)</description>
+            <countryList>
+              <iso3166Id>RU</iso3166Id>
+            </countryList>
+            <languageList>
+              <iso639Id>rus</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>rtu</name>
+            <shortDescription>ru</shortDescription>
+            <description>Russian (with Tatar layout)</description>
+            <countryList>
+              <iso3166Id>RU</iso3166Id>
+            </countryList>
+            <languageList>
+              <iso639Id>rus</iso639Id>
+              <iso639Id>tat</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+      </variantList>
+    </layout>
+    ...
+  </layoutList>
+  ...
+</xkbConfigRegistry>
