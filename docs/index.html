@@ -10,6 +10,13 @@
         margin: 0;
       }
 
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: black;
+          color: white;
+        }
+      }
+
       main {
         width: min-content;
         margin: 1rem auto;
@@ -31,6 +38,7 @@
         width: max-content;
         font-family: sans-serif;
         width: calc(53 * var(--kb-scale));
+        user-select: none;
       }
 
       .Kb-Row {
