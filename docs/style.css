@@ -1,0 +1,166 @@
+body {
+  background-color: white;
+  margin: 0;
+  font-family: serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+
+main {
+  width: min-content;
+  margin: 1rem auto;
+}
+
+.Kb {
+  --kb-scale: calc(min(1rem, 1.8vw));
+  --kb-key-width: calc(3.25 * var(--kb-scale));
+  --kb-key-height: calc(3.25 * var(--kb-scale));
+  --kb-key-border-radius: calc(0.333 * var(--kb-scale));
+  --kb-key-gap: calc(0.375 * var(--kb-scale));
+  --kb-key-bg-color: rgb(222, 222, 222);
+  --kb-key-color: black;
+  --kb-special-key-bg-color: dimgrey;
+  --kb-special-key-color: white;
+  font-size: var(--kb-scale);
+  display: grid;
+  gap: var(--kb-key-gap);
+  width: max-content;
+  font-family: sans-serif;
+  width: calc(53 * var(--kb-scale));
+  user-select: none;
+}
+
+.Kb-Row {
+  display: flex;
+  gap: var(--kb-key-gap);
+  justify-content: stretch;
+}
+
+.Kb-Row > * {
+  margin: 0;
+  list-style-type: none;
+  background-color: var(--kb-key-bg-color);
+  color: var(--kb-key-color);
+  border-radius: var(--kb-key-border-radius);
+  width: var(--kb-key-width);
+  height: var(--kb-key-height);
+  display: grid;
+  grid-template-areas: 'shift altShift' 'base alt';
+  grid-template-rows: 1fr 1fr;
+  padding: calc(0.333 * var(--kb-scale));
+  box-sizing: border-box;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.Kb-Row > * > :nth-child(1) {
+  grid-area: base;
+  align-self: end;
+}
+
+.Kb-Row > * > :nth-child(2) {
+  grid-area: shift;
+}
+
+.Kb-Row > * > :nth-child(3) {
+  grid-area: alt;
+  text-align: right;
+  align-self: end;
+}
+
+.Kb-Row > * > :nth-child(4) {
+  grid-area: altShift;
+  text-align: right;
+}
+
+.Kb-BackspaceKey,
+.Kb-TabKey,
+.Kb-EnterTopKey,
+.Kb-CapsLockKey,
+.Kb-EnterBottomKey,
+.Kb-ShiftLKey,
+.Kb-ShiftRKey,
+.Kb-ControlLKey,
+.Kb-SuperLKey,
+.Kb-AltLKey,
+.Kb-SpaceKey,
+.Kb-AltRKey,
+.Kb-SuperRKey,
+.Kb-MenuKey,
+.Kb-ControlRKey {
+  background-color: var(--kb-special-key-bg-color);
+  color: var(--kb-special-key-color);
+  font-size: calc(0.75 * var(--kb-scale));
+}
+
+.Kb-TabKey {
+  width: calc(var(--kb-key-width) * 1.333);
+}
+
+.Kb-CapsLockKey {
+  width: calc(var(--kb-key-width) * 1.75);
+}
+
+.Kb-ShiftLKey {
+  width: calc(var(--kb-key-width) * 1.125);
+}
+
+.Kb-ControlLKey,
+.Kb-SuperLKey,
+.Kb-AltLKey,
+.Kb-AltRKey,
+.Kb-SuperRKey,
+.Kb-MenuKey,
+.Kb-ControlRKey {
+  width: calc(var(--kb-key-width) * 1.25);
+}
+
+.Kb-BackspaceKey,
+.Kb-EnterTopKey,
+.Kb-EnterBottomKey,
+.Kb-ShiftRKey,
+.Kb-SpaceKey {
+  flex-grow: 1;
+}
+
+.Kb-EnterBottomKey {
+  margin-top: calc(var(--kb-key-height) * -1 - var(--kb-key-gap));
+  height: calc(var(--kb-key-height) * 2 + var(--kb-key-gap));
+  position: relative;
+}
+
+.Kb-EnterBottomKey::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: calc(var(--kb-key-border-radius) * 2);
+  height: calc(var(--kb-key-border-radius) * 2);
+  top: calc(var(--kb-key-height) - var(--kb-key-border-radius));
+  left: calc(var(--kb-key-border-radius) * -2);
+  border-top-right-radius: calc(var(--kb-key-border-radius) * 2);
+  border: var(--kb-key-border-radius) solid var(--kb-special-key-bg-color);
+  border-left: none;
+  border-bottom: none;
+  box-sizing: content-box;
+}
+
+.Kb-AddedSymbol {
+  color: green;
+  text-shadow: white 1px 1px 1px, white -1px 1px 1px, white 1px -1px 1px, white -1px -1px 1px;
+  font-weight: bold;
+}
+
+.Kb-AddedSymbol::before {
+  content: ' ';
+  display: inline;
+}
+
+.Kb-RemovedSymbol {
+  color: red;
+  text-decoration: line-through;
+}
