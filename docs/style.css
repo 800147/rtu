@@ -20,11 +20,13 @@ main {
   --kb-scale: calc(min(1rem, 1.8vw));
   --kb-key-width: calc(3.25 * var(--kb-scale));
   --kb-key-height: calc(3.25 * var(--kb-scale));
-  --kb-key-border-radius: calc(0.333 * var(--kb-scale));
+  --kb-key-border-radius: calc(0.5 * var(--kb-scale));
   --kb-key-gap: calc(0.375 * var(--kb-scale));
   --kb-key-bg-color: rgb(222, 222, 222);
+  --kb-key-shadow-color: darkgray;
   --kb-key-color: black;
   --kb-special-key-bg-color: dimgrey;
+  --kb-special-key-shadow-color: #474747;
   --kb-special-key-color: white;
   font-size: var(--kb-scale);
   display: grid;
@@ -56,6 +58,8 @@ main {
   box-sizing: border-box;
   line-height: 1;
   flex-shrink: 0;
+  --kb-shadow-color: var(--kb-key-shadow-color);
+  box-shadow: 0 calc(0.16 * var(--kb-scale)) var(--kb-shadow-color);
 }
 
 .Kb-Row > * > :nth-child(1) {
@@ -96,6 +100,7 @@ main {
   background-color: var(--kb-special-key-bg-color);
   color: var(--kb-special-key-color);
   font-size: calc(0.75 * var(--kb-scale));
+  --kb-shadow-color: var(--kb-special-key-shadow-color);
 }
 
 .Kb-TabKey {
@@ -147,6 +152,7 @@ main {
   border-left: none;
   border-bottom: none;
   box-sizing: content-box;
+  box-shadow: inset 0 calc(0.16 * var(--kb-scale)) var(--kb-shadow-color);
 }
 
 .Kb-AddedSymbol {
