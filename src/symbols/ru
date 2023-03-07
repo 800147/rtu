@@ -5,36 +5,17 @@
 // typographic symbols commonly used in Russian language and punctuation symbols
 // from Latin keyboard layout.
 // Boolat Kamalov <800147@gmail.com>
-// last changes 2022/08/25
-//
-// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
-// │ Ё ~ │ !   │ " ' │ № § │ ;   │ %   │ : ´ │ ?   │ *   │ (   │ )   │ _ – │ +   ┃ ⌫       ┃
-// │ ё ` │ 1 • │ 2 @ │ 3 # │ 4 $ │ 5   │ 6 ^ │ 7 & │ 8 ₽ │ 9 < │ 0 > │ - — │ =   ┃Backspace┃
-// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
-// ┃       ┃ Й   │ Ц   │ У   │ К   │ Е   │ Н   │ Г   │ Ш   │ Щ   │ З   │ Х { │ Ъ } ┃ Enter ┃
-// ┃ Tab ↹ ┃ й   │ ц   │ у   │ к   │ е   │ н   │ г   │ ш   │ щ   │ з   │ х [ │ ъ ] ┃   ⏎   ┃
-// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
-// ┃ Caps   ┃ Ф   │ Ы   │ В   │ А   │ П   │ Р   │ О   │ Л   │ Д   │ Ж   │ Э   │ /   ┃      ┃
-// ┃ lock ⇬ ┃ ф   │ ы   │ в   │ а   │ п   │ р   │ о   │ л   │ д   │ ж   │ э   │ \   ┃      ┃
-// ┣━━━━━━━━┻━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┲━━━┷━━━━━┻━━━━━━┫
-// ┃          ┃ Я   │ Ч   │ С   │ М   │ И   │ Т   │ Ь   │ Б „ │ Ю “ │ , ’ ┃                ┃
-// ┃  Shift ⇧ ┃ я   │ ч   │ с   │ м   │ и   │ т   │ ь   │ б « │ ю » │ . … ┃     Shift ⇧    ┃
-// ┣━━━━━━━┳━━┻━━━━┳┷━━━━━┷┱────┴─────┴─────┴─────┴─────┴─────┴┲━━━━┷━━┳━━┻━━━━┳━━━━━━━┳━━━┛
-// ┃       ┃       ┃       ┃            Word joiner            ┃       ┃       ┃       ┃
-// ┃ Ctrl  ┃ Meta  ┃  Alt  ┃     Space  Non-breaking space     ┃AltGr ⇮┃ Menu  ┃ Ctrl  ┃
-// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹───────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┛
 partial alphanumeric_keys
-xkb_symbols "ru_typo" {
-
+xkb_symbols "typo" {
     include "ru(winkeys)"
-    name[Group1]= "Russian (with typographic symbols)";
+    name[Group1]= "Russian (typographic)";
 
     key <TLDE> { [ NoSymbol, NoSymbol,              grave,          asciitilde ] };
     key <AE01> { [ NoSymbol, NoSymbol, enfilledcircbullet                      ] };
     key <AE02> { [ NoSymbol, NoSymbol,                 at,          apostrophe ] };
     key <AE03> { [ NoSymbol, NoSymbol,         numbersign,             section ] };
     key <AE04> { [ NoSymbol, NoSymbol,             dollar                      ] };
-    key <AE06> { [ NoSymbol, NoSymbol,        asciicircum,               U0301 ] };
+    key <AE06> { [ NoSymbol, NoSymbol,        asciicircum,               U0301 ] }; // Combining Acute Accent
     key <AE07> { [ NoSymbol, NoSymbol,          ampersand                      ] };
     key <AE09> { [ NoSymbol, NoSymbol,               less                      ] };
     key <AE10> { [ NoSymbol, NoSymbol,            greater                      ] };
@@ -45,39 +26,20 @@ xkb_symbols "ru_typo" {
 
     key <AB08> { [ NoSymbol, NoSymbol,      guillemotleft,  doublelowquotemark ] };
     key <AB09> { [ NoSymbol, NoSymbol,     guillemotright, leftdoublequotemark ] };
-    key <AB10> { [ NoSymbol, NoSymbol,           ellipsis,               U2019 ] };
-    key <SPCE> { [    space,    space,       nobreakspace,               U2060 ] };
+    key <AB10> { [ NoSymbol, NoSymbol,           ellipsis,               U2019 ] }; // Right Single Quotation Mark
+    key <SPCE> { [    space,    space,       nobreakspace,               U2060 ] }; // Word Joiner
 
     include "level3(ralt_switch)"
 };
 
-// RTU (Russian-Tatar United keyboard layout).
+// Russian-Tatar United keyboard layout.
 // This is a modified Russian standard keyboard, with the third level containing
 // Tatar alphabetic letters, typographic symbols commonly used in Russian language
 // and punctuation symbols from Latin keyboard layout.
 // Boolat Kamalov <800147@gmail.com>
-// last changes 2022/08/25
-//
-// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
-// │ Ё ~ │ !   │ " ' │ № § │ ;   │ %   │ : ´ │ ?   │ *   │ (   │ )   │ _ – │ +   ┃ ⌫       ┃
-// │ ё ` │ 1 • │ 2 @ │ 3 # │ 4 $ │ 5   │ 6 ^ │ 7 & │ 8 ₽ │ 9 < │ 0 > │ - — │ =   ┃Backspace┃
-// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
-// ┃       ┃ Й   │ Ц   │ У Ү │ К   │ Е   │ Н Ң │ Г   │ Ш   │ Щ   │ З   │ Х Һ │ Ъ } ┃ Enter ┃
-// ┃ Tab ↹ ┃ й   │ ц   │ у ү │ к   │ е   │ н ң │ г   │ ш   │ щ   │ з   │ х һ │ ъ ] ┃   ⏎   ┃
-// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
-// ┃ Caps   ┃ Ф   │ Ы   │ В   │ А Ә │ П   │ Р   │ О Ө │ Л   │ Д   │ Ж Җ │ Э { │ /   ┃      ┃
-// ┃ lock ⇬ ┃ ф   │ ы   │ в   │ а ә │ п   │ р   │ о ө │ л   │ д   │ ж җ │ э [ │ \   ┃      ┃
-// ┣━━━━━━━━┻━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┲━━━┷━━━━━┻━━━━━━┫
-// ┃          ┃ Я   │ Ч   │ С   │ М   │ И   │ Т   │ Ь   │ Б „ │ Ю “ │ , ’ ┃                ┃
-// ┃  Shift ⇧ ┃ я   │ ч   │ с   │ м   │ и   │ т   │ ь   │ б « │ ю » │ . … ┃     Shift ⇧    ┃
-// ┣━━━━━━━┳━━┻━━━━┳┷━━━━━┷┱────┴─────┴─────┴─────┴─────┴─────┴┲━━━━┷━━┳━━┻━━━━┳━━━━━━━┳━━━┛
-// ┃       ┃       ┃       ┃            Word joiner            ┃       ┃       ┃       ┃
-// ┃ Ctrl  ┃ Meta  ┃  Alt  ┃     Space  Non-breaking space     ┃AltGr ⇮┃ Menu  ┃ Ctrl  ┃
-// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹───────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┛
 partial alphanumeric_keys
 xkb_symbols "rtu" {
-
-    include "ru(ru_typo)"
+    include "ru(typo)"
     name[Group1]= "Russian (with Tatar layout)";
 
     key <AD03> { [ NoSymbol, NoSymbol,    Cyrillic_u_straight,    Cyrillic_U_straight ] };

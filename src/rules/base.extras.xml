@@ -20,9 +20,9 @@
         ...
         <variant>
           <configItem popularity="exotic">
-            <name>ru_typo</name>
+            <name>typo</name>
             <shortDescription>ru</shortDescription>
-            <description>Russian (with typographic symbols)</description>
+            <description>Russian (typographic)</description>
             <countryList>
               <iso3166Id>RU</iso3166Id>
             </countryList>
