@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Русско-татарская объединённая раскладка клавиатуры</title>
     <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="stylesheet" href="https://800147.github.io/tools/src/Document/Document.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="alternate" hreflang="en" href="https://800147.github.io/rtu/en" />
     <meta name="description" content="Здесь описание руско-татарской объединённой раскладки клавиатуры, созданной для тех, кто в основном пишет по-русски, но хочет иметь доступ к татарским буквам." />
@@ -15,16 +16,15 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="1200" />
   </head>
-  <body>
-    <main>
+  <body class="Document-Body">
+    <main class="Document Document_page">
       <h1>Русско-татарская объединённая раскладка клавиатуры</h1>
 
-      <p>
-        Зачем она нужна? — Хороший вопрос. Давайте посмотрим на классическую татарскую раскладку:
-      </p>
+      <h2>Зачем она нужна?</h2>
+      <p>Хороший вопрос. Давайте посмотрим на классическую татарскую раскладку:</p>
 
       <h3>Татарская</h3>
-      <div class="Kb" role="img" aria-label="Изображение раскладки" translate="no">
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки" translate="no">
         <div class="Kb-Row">
           <ul><li>һ</li><li>Һ</li><li>ё</li><li>Ё</li></ul>
           <ul><li>1</li><li>!</li></ul>
@@ -101,19 +101,20 @@
       </div>
 
       <p>
-        Эта раскладка уже есть на любой системе и она очень похожа на русскую. Но некоторые русские
-        буквы вынесены на третий уровень (с зажатым правым <span translate="no">Alt</span>), а на их 
-        месте расположились татарские символы. И здесь есть логика: были выбраны те русские буквы,
-        которые реже всего встречаются в татарском языке, поэтому вполне закономерно убрать их
-        по-дальше, дав место более популярным татарским символам. Этим же объясняется то, что
-        татарские символы <span translate="no">(ә, ө, ү, ң, җ, һ)</span> не расположены рядом со 
-        своими парами <span translate="no">(а, о, у, н, ж, х)</span> — эти буквы популярны и нужны
-        на первом слое вместе с татарскими, так что на одну кнопку их расположить не получится.
+        Эта раскладка уже есть на любой системе и она очень похожа на русскую. Но некоторые русские
+        буквы вынесены на третий уровень (с зажатым правым <span translate="no">Alt</span>),
+        а на их месте расположились татарские символы. И здесь есть логика: были выбраны те русские
+        буквы, которые реже всего встречаются в татарском языке, поэтому вполне закономерно убрать
+        их по-дальше, дав место более популярным татарским символам. Этим же объясняется то, что
+        татарские символы <span translate="no">(ә, ө, ү, ң, җ, һ)</span> не расположены рядом
+        со своими парами <span translate="no">(а, о, у, н, ж, х)</span> — эти буквы популярны
+        и нужны на первом слое вместе с татарскими, так что на одну кнопку их расположить
+        не получится.
       </p>
       <p>
         Таким образом, на этой клавиатуре удобно писать по-⁠татарски, но не удобно писать по-⁠русски.
-        А мне хочется наоборот. Я не так часто пишу по-⁠татарски, поэтому вперёд хочется выставить
-        именно русские символы. И ставить три раскладки клавиатуры на все случаи тоже не хочется —
+        А мне хочется наоборот. Я не так часто пишу по-⁠татарски, поэтому вперёд хочется выставить
+        именно русские символы. И ставить три раскладки клавиатуры на все случаи тоже не хочется —
         я даже в двух путаюсь, а с тремя точно сойду с ума.
       </p>
       <p>
@@ -134,7 +135,7 @@
         на те же кнопки, на которых они располагаются в английской раскладке
       </p>
       <h3>ru + en</h3>
-      <div class="Kb" role="img" aria-label="Изображение раскладки" translate="no">
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li><span class="Kb-AddedSymbol">`</span></li><li><span class="Kb-AddedSymbol">~</span></li></ul>
           <ul><li>1</li><li>!</li></ul>
@@ -211,8 +212,8 @@
       </div>
 
       <p>
-        Дальше типографика. Можно было бы просто взять раскладку Бирмана — там всё есть, но она мне
-        кажется избыточной. Наша цель — в последствии, расположить поверх русских букв татарские
+        Дальше типографика. Можно было бы просто взять раскладку Бирмана — там всё есть, но она мне
+        кажется избыточной. Наша цель — в последствии, расположить поверх русских букв татарские
         символы, поэтому буквенный блок хочется оставить максимально свободным. К необходимому
         минимуму я отнёс кавычки двух типов, неразрывные пробелы (в том числе нулевой ширины), тире,
         черту, разделяющую диапазон чисел (дат, времени), апостроф, знак параграфа, маркер списка,
@@ -227,7 +228,7 @@
       </p>
 
       <h3>ru-typo</h3>
-      <div class="Kb" role="img" aria-label="Изображение раскладки" translate="no">
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
           <ul><li>1</li><li>!</li><li><span class="Kb-AddedSymbol">•</span></li></ul>
@@ -316,7 +317,7 @@
       </p>
 
       <h3>rtu</h3>
-      <div class="Kb" role="img" aria-label="Изображение раскладки" translate="no">
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
           <ul><li>1</li><li>!</li><li>•</li></ul>
@@ -397,7 +398,7 @@
       <p>На выходе имеем две раскладки. Одна основывается на другой.</p>
 
       <h3>Русская дополненная</h3>
-      <div class="Kb" role="img" aria-label="Изображение раскладки" translate="no">
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
           <ul><li>1</li><li>!</li><li>•</li></ul>
@@ -474,7 +475,7 @@
       </div>
 
       <h3>Русско-татарская объединённая</h3>
-      <div class="Kb" role="img" aria-label="Изображение раскладки" translate="no">
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
           <ul><li>1</li><li>!</li><li>•</li></ul>
@@ -551,15 +552,18 @@
       </div>
       <h2>Как установить?</h2>
       <p>
-        Для систем с xkeyboard-config файлы с раскладкой лежат
-        <a href="https://github.com/800147/rtu" target="_blank">здесь</a>,
-        а инструкция включения в систему —
-        <a href="https://xkbcommon.org/doc/current/md_doc_user_configuration.html" target="_blank">здесь</a>.
+        Для систем с xkeyboard-config, код уже залит в репозиторий
+        (<a href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/456" target="_blank" rel="noreferrer">ru-typo</a>,
+        <a href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/459" target="_blank" rel="noreferrer">rtu</a>),
+        так что достаточно дождаться, когда ваша система обновится до нужной версии
+        xkeyboard-config и установить нужную раскладку через системные инструменты (предварительно
+        надо включить набор экзотических раскладок).
       </p>
       <p>
-        А ещё есть пулреквест для включения этой раскладки в стандартную поставку, который можно
-        лайкнуть при желании —
-        <a href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/422" target="_blank">вот он</a>.
+        До этого момента, можно взять файлы с раскладкой
+        <a href="https://github.com/800147/rtu" target="_blank" rel="noreferrer">здесь</a>,
+        а инструкция включения в систему —
+        <a href="https://xkbcommon.org/doc/current/md_doc_user_configuration.html" target="_blank" rel="noreferrer">здесь</a>.
       </p>
     </main>
   </body>

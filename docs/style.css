@@ -1,23 +1,5 @@
-body {
-  background-color: white;
-  margin: 0;
-  font-family: serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: black;
-    color: white;
-  }
-}
-
-main {
-  width: min-content;
-  margin: 1rem auto;
-}
-
 .Kb {
-  --kb-scale: calc(min(1rem, 1.8vw));
+  --kb-scale: calc(min(0.76rem, 1.8vw));
   --kb-key-width: calc(3.25 * var(--kb-scale));
   --kb-key-height: calc(3.25 * var(--kb-scale));
   --kb-key-border-radius: calc(0.5 * var(--kb-scale));
@@ -31,10 +13,11 @@ main {
   font-size: var(--kb-scale);
   display: grid;
   gap: var(--kb-key-gap);
-  width: max-content;
+  justify-content: center;
   font-family: sans-serif;
-  width: calc(53 * var(--kb-scale));
+  width: 100%;
   user-select: none;
+  margin: var(--size-l) 0 0;
 }
 
 .Kb-Row {
