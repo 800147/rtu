@@ -8,14 +8,26 @@
     <title>Russian-Tatar united keyboard layout</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="icon" type="image/png" href="./favicon.png" />
-    <link rel="stylesheet" href="https://800147.github.io/tools/src/Document/Document.css" />
+    <link
+      rel="stylesheet"
+      href="https://800147.github.io/tools/src/Document/Document.css"
+    />
     <link rel="stylesheet" href="./style.css" />
     <link rel="alternate" hreflang="ru" href="https://800147.github.io/rtu" />
-    <meta name="description" content="Here is the description of Russian Russian-Tatar united keyboard layout created for those who mostly write in Russian, but want to have access to Tatar letters." />
+    <meta
+      name="description"
+      content="Here is the description of Russian Russian-Tatar united keyboard layout created for those who mostly write in Russian, but want to have access to Tatar letters."
+    />
     <meta property="og:site_name" content="800147.github.io" />
     <meta property="og:title" content="Russian-Tatar united keyboard layout" />
-    <meta property="og:description" content="Here is the description of Russian Russian-Tatar united keyboard layout created for those who mostly write in Russian, but want to have access to Tatar letters." />
-    <meta property="og:image" content="https://800147.github.io/rtu/preview.png" />
+    <meta
+      property="og:description"
+      content="Here is the description of Russian Russian-Tatar united keyboard layout created for those who mostly write in Russian, but want to have access to Tatar letters."
+    />
+    <meta
+      property="og:image"
+      content="https://800147.github.io/rtu/preview.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="1200" />
   </head>
@@ -32,6 +44,7 @@
       <p>Good question. Let's take a look at the classic Tatar layout:</p>
 
       <h3>Tatar</h3>
+      <!-- prettier-ignore -->
       <div class="Kb Document-Exclude" role="img" aria-label="Layout visualisation" translate="no">
         <div class="Kb-Row">
           <ul><li>һ</li><li>Һ</li><li>ё</li><li>Ё</li></ul>
@@ -109,39 +122,47 @@
       </div>
 
       <p>
-        This layout is already available on any system and it is pretty similar to the Russian one.
-        But some Russian letters are placed on the third level (with the right
-        <span translate="no">Alt</span> pressed), and Tatar symbols are located in their place. And
-        there is logic here: these Russian letters are least common in the Tatar language, so it is
-        quite natural to move them further, giving place to more popular Tatar symbols. This also
-        explains the fact that the Tatar symbols <span translate="no">(ә, ө, ү, ң, җ, һ)</span> are
-        not located next to their pairs <span translate="no">(а, о, у, н, ж, х)</span> — these
-        letters are popular and needed on the first layer together with Tatar ones, so it’s
-        impossible to place them on one button.
+        This layout is already available on any system and it is pretty similar
+        to the Russian one. But some Russian letters are placed on the third
+        level (with the right
+        <span translate="no">Alt</span> pressed), and Tatar symbols are located
+        in their place. And there is logic here: these Russian letters are least
+        common in the Tatar language, so it is quite natural to move them
+        further, giving place to more popular Tatar symbols. This also explains
+        the fact that the Tatar symbols
+        <span translate="no">(ә, ө, ү, ң, җ, һ)</span> are not located next to
+        their pairs <span translate="no">(а, о, у, н, ж, х)</span> — these
+        letters are popular and needed on the first layer together with Tatar
+        ones, so it’s impossible to place them on one button.
       </p>
       <p>
-        Thus, it is convenient to write in Tatar on this keyboard, but it is not convenient to write
-        in Russian. But I want the opposite. I don't write in Tatar so often, so I want to put
-        Russian characters at front. And I don't want to put three keyboard layouts for all cases
-        either — I even get confused in two, and with three I will definitely go crazy.
+        Thus, it is convenient to write in Tatar on this keyboard, but it is not
+        convenient to write in Russian. But I want the opposite. I don't write
+        in Tatar so often, so I want to put Russian characters at front. And I
+        don't want to put three keyboard layouts for all cases either — I even
+        get confused in two, and with three I will definitely go crazy.
       </p>
       <p>
-        In total, we need not just a "Tatar" layout, but rather a layout with the presence of Tatar
-        letters that could be used if necessary. And in this case they could be placed on paired
-        buttons so that you don't have to learn their location. And while we are at it, I also want
-        to add typographic symbols to make double angle quotation marks available, and also symbols
-        from the Latin layout like at and hashtag, so that you can write mail addresses and hashtags
-        without switching the language. That's how I came to the need to create a new layout.
+        In total, we need not just a "Tatar" layout, but rather a layout with
+        the presence of Tatar letters that could be used if necessary. And in
+        this case they could be placed on paired buttons so that you don't have
+        to learn their location. And while we are at it, I also want to add
+        typographic symbols to make double angle quotation marks available, and
+        also symbols from the Latin layout like at and hashtag, so that you can
+        write mail addresses and hashtags without switching the language. That's
+        how I came to the need to create a new layout.
       </p>
 
       <h2>Where will we start?</h2>
       <p>
-        At Latin characters. They are the easiest to deal with. Just take the standard English
-        layout, which is drawn on the average Russian keyboard, and add its special characters (only
-        those that are not already presented) to the Russian layout as a third layer on the same
-        buttons they are located in the English layout
+        At Latin characters. They are the easiest to deal with. Just take the
+        standard English layout, which is drawn on the average Russian keyboard,
+        and add its special characters (only those that are not already
+        presented) to the Russian layout as a third layer on the same buttons
+        they are located in the English layout
       </p>
       <h3>ru + en typography</h3>
+      <!-- prettier-ignore -->
       <div class="Kb Document-Exclude" role="img" aria-label="Layout visualisation" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li><span class="Kb-AddedSymbol">`</span></li><li><span class="Kb-AddedSymbol">~</span></li></ul>
@@ -219,22 +240,26 @@
       </div>
 
       <p>
-        Next is typography used in Cyrillic languages. We could just take the Byrman's layout —
-        everything is there, but it seems redundant to me. Our goal is to place Tatar symbols on top
-        of Russian letters later, so we want to leave the letter block as free as possible. To the
-        required minimum, I included two types of quotation marks, non-breaking spaces (including
-        zero width), em dash, en dash, an apostrophe, a paragraph mark, a list marker, an accent and
-        an ellipsis. Both the list of these symbols and their location may be debatable, but I am
-        open to discussion.
+        Next is typography used in Cyrillic languages. We could just take the
+        Byrman's layout — everything is there, but it seems redundant to me. Our
+        goal is to place Tatar symbols on top of Russian letters later, so we
+        want to leave the letter block as free as possible. To the required
+        minimum, I included two types of quotation marks, non-breaking spaces
+        (including zero width), em dash, en dash, an apostrophe, a paragraph
+        mark, a list marker, an accent and an ellipsis. Both the list of these
+        symbols and their location may be debatable, but I am open to
+        discussion.
       </p>
       <p>
-        Now let's add these symbols to our layout. The angle brackets had to be moved from their
-        place, because for the Russian language quotes are much more important, and this place is
-        very convenient. Then we also move the single quotation mark just to free up the letter. In
-        addition, it would be quite logical for a single quote to be next to a double quote.
+        Now let's add these symbols to our layout. The angle brackets had to be
+        moved from their place, because for the Russian language quotes are much
+        more important, and this place is very convenient. Then we also move the
+        single quotation mark just to free up the letter. In addition, it would
+        be quite logical for a single quote to be next to a double quote.
       </p>
 
       <h3>ru-typography</h3>
+      <!-- prettier-ignore -->
       <div class="Kb Document-Exclude" role="img" aria-label="Layout visualisation" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
@@ -312,18 +337,21 @@
       </div>
 
       <p>
-        In general, it turned out to be a good layout for the Russian language. On its basis we will
-        make a Russian-Tatar united one. And we will save this one, so that Russian-Bashkir united,
-        Russian-Uzbek united and any other can be made on its basis later.
+        In general, it turned out to be a good layout for the Russian language.
+        On its basis we will make a Russian-Tatar united one. And we will save
+        this one, so that Russian-Bashkir united, Russian-Uzbek united and any
+        other can be made on its basis later.
       </p>
 
       <p>
-        Finally, we add Tatar letters next to their pairs. The opening square and curly brackets had
-        to be shifted, because Tatar letters are more important here (in the basic Russian layout,
-        we will leave these symbols in place).
+        Finally, we add Tatar letters next to their pairs. The opening square
+        and curly brackets had to be shifted, because Tatar letters are more
+        important here (in the basic Russian layout, we will leave these symbols
+        in place).
       </p>
 
       <h3>rtu</h3>
+      <!-- prettier-ignore -->
       <div class="Kb Document-Exclude" role="img" aria-label="Layout visualisation" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
@@ -405,6 +433,7 @@
       <p>At the output we have two layouts. One is based on the other.</p>
 
       <h3>Russian augmented</h3>
+      <!-- prettier-ignore -->
       <div class="Kb Document-Exclude" role="img" aria-label="Layout visualisation" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
@@ -482,6 +511,7 @@
       </div>
 
       <h3>Russian-Tatar united</h3>
+      <!-- prettier-ignore -->
       <div class="Kb Document-Exclude" role="img" aria-label="Layout visualisation" translate="no">
         <div class="Kb-Row">
           <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
@@ -559,18 +589,42 @@
       </div>
       <h2>How to install?</h2>
       <p>
-        For systems with xkeyboard-config, the code is already in repository
-        (<a href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/456" target="_blank" rel="noreferrer">ru-typo</a>,
-        <a href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/459" target="_blank" rel="noreferrer">rtu</a>),
-        so you can just wait until your system will update to latest version of xkeyboard-config
-        (≥2.38 for Russian augmented and ≥2.39 for Russian-Tatar united) and set it using system
-        tools (you should turn on exotic layouts first).
+        For systems with xkeyboard-config, the code is already in repository (<a
+          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/456"
+          target="_blank"
+          rel="noreferrer"
+          >ru-typo</a
+        >,
+        <a
+          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/459"
+          target="_blank"
+          rel="noreferrer"
+          >rtu</a
+        >), so you can just wait until your system will update to latest version
+        of xkeyboard-config (≥2.38 for Russian augmented and ≥2.39 for
+        Russian-Tatar united) and set it using system tools (you should turn on
+        exotic layouts first).
       </p>
+      <figure>
+        <img
+          src="./keyboard-install.png"
+          alt="Keyboard layout installation process screenshot"
+        />
+        <figcaption>
+          Russian-Tatar united keyboard layout installation in Fedora Linux 39
+        </figcaption>
+      </figure>
       <p>
         Before that moment you can use files
-        <a href="https://github.com/800147/rtu" target="_blank" rel="noreferrer">from here</a>,
-        and instructions for enabling it in the system
-        <a href="https://xkbcommon.org/doc/current/md_doc_user_configuration.html" target="_blank" rel="noreferrer">from here</a>.
+        <a href="https://github.com/800147/rtu" target="_blank" rel="noreferrer"
+          >from here</a
+        >, and instructions for enabling it in the system
+        <a
+          href="https://xkbcommon.org/doc/current/md_doc_user_configuration.html"
+          target="_blank"
+          rel="noreferrer"
+          >from here</a
+        >.
       </p>
     </main>
   </body>
