@@ -10,7 +10,7 @@
   --kb-special-key-bg-color: dimgrey;
   --kb-special-key-shadow-color: #474747;
   --kb-special-key-color: white;
-  font-size: var(--kb-scale);
+  font-size: calc(0.9 * var(--kb-scale));
   display: grid;
   gap: var(--kb-key-gap);
   justify-content: center;
@@ -35,7 +35,7 @@
   width: var(--kb-key-width);
   height: var(--kb-key-height);
   display: grid;
-  grid-template-areas: 'shift altShift' 'base alt';
+  grid-template-areas: "shift altShift" "base alt";
   grid-template-rows: 1fr 1fr;
   padding: calc(0.333 * var(--kb-scale));
   box-sizing: border-box;
@@ -43,6 +43,7 @@
   flex-shrink: 0;
   --kb-shadow-color: var(--kb-key-shadow-color);
   box-shadow: 0 calc(0.16 * var(--kb-scale)) var(--kb-shadow-color);
+  white-space: nowrap;
 }
 
 .Kb-Row > * > :nth-child(1) {
@@ -123,7 +124,7 @@
 }
 
 .Kb-EnterBottomKey::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   width: calc(var(--kb-key-border-radius) * 2);
@@ -140,16 +141,37 @@
 
 .Kb-AddedSymbol {
   color: green;
-  text-shadow: white 1px 1px 1px, white -1px 1px 1px, white 1px -1px 1px, white -1px -1px 1px;
+  text-shadow: white 1px 1px 1px, white -1px 1px 1px, white 1px -1px 1px,
+    white -1px -1px 1px;
   font-weight: bold;
 }
 
 .Kb-AddedSymbol::before {
-  content: ' ';
+  content: " ";
   display: inline;
 }
 
 .Kb-RemovedSymbol {
   color: red;
   text-decoration: line-through;
+}
+
+@media print {
+  .Kb {
+    --kb-key-bg-color: white;
+    --kb-key-shadow-color: transparent;
+    --kb-key-color: black;
+    --kb-special-key-bg-color: lightgrey;
+    --kb-special-key-shadow-color: transparent;
+    --kb-special-key-color: black;
+    print-color-adjust: exact;
+  }
+
+  .Kb-Row > ul:not([class]) {
+    border: 1.5px solid darkgray;
+  }
+
+  .Kb-Row > ul:not([class]) > li {
+    margin: 0 -1.5px;
+  }
 }

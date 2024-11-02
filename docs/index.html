@@ -641,23 +641,10 @@
         </div>
       </div>
       <h2>Как установить?</h2>
+      <h3>Linux</h3>
       <p>
-        Для систем с xkeyboard-config, код уже залит в репозиторий (<a
-          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/456"
-          target="_blank"
-          rel="noreferrer"
-          >ru-typo</a
-        >,
-        <a
-          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/459"
-          target="_blank"
-          rel="noreferrer"
-          >rtu</a
-        >), так что достаточно дождаться, когда ваша система обновится до нужной
-        версии xkeyboard-config (≥2.38 для русской дополненной и ≥2.39 для
-        русско-татарской объединённой) и установить нужную раскладку через
-        системные инструменты (предварительно надо включить набор экзотических
-        раскладок).
+        Раскладки уже присутствуют в системе и установить их можно через
+        настройки. Предварительно надо включить набор экзотических раскладок.
       </p>
       <figure>
         <img
@@ -667,21 +654,63 @@
           height="768"
         />
         <figcaption>
-          Установка русско-татарской раскладки в Fedora Linux 39
+          Установка русско-татарской раскладки в Fedora Linux 39
         </figcaption>
       </figure>
       <p>
-        До этого момента, можно взять файлы с раскладкой
-        <a href="https://github.com/800147/rtu" target="_blank" rel="noreferrer"
+        Если ваша система использует слишком старую версию xkeyboard-config
+        (&lt;2.38 для русской дополненной и &lt;2.39 для русско-татарской
+        объединённой), можно взять файлы с раскладкой
+        <a
+          href="https://github.com/800147/rtu/src"
+          target="_blank"
+          rel="noreferrer"
           >здесь</a
         >, а инструкцию включения в систему —
         <a
-          href="https://xkbcommon.org/doc/current/md_doc_user_configuration.html"
+          href="https://xkbcommon.org/doc/current/user-configuration.html"
           target="_blank"
           rel="noreferrer"
           >здесь</a
         >.
       </p>
+      <h3>Windows</h3>
+      <p>
+        Можно установить описанные здесь раскладки в Windows скачав их
+        по ссылкам ниже.
+      </p>
+      <figure>
+        <a
+          class="Document-Button"
+          href="./download/windows/ru+typo.zip"
+          download
+          >ru+typo.zip</a
+        >
+        <figcaption>русская дополненная</figcaption>
+      </figure>
+      <figure>
+        <a class="Document-Button" href="./download/windows/ru+tat.zip" download
+          >ru+tat.zip</a
+        >
+        <figcaption>русско-татарская объединённая</figcaption>
+      </figure>
+      <p>
+        Скачанный архив надо распаковать, найти файл
+        <code>setup.exe</code> и запустить его. После того, как вы разрешите
+        исполнение файла и установка пройдёт успешно, нужная раскладка уже будет
+        выбрана в качестве одной из системных раскладок.
+      </p>
+      <figure>
+        <img
+          src="./keyboard-install-windows.png"
+          alt="Скриншот процесса установки клавиатуры"
+          width="800"
+          height="600"
+        />
+        <figcaption>
+          Установка русско-татарской раскладки в Windows 11
+        </figcaption>
+      </figure>
     </main>
   </body>
 </html>
