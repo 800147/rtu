@@ -632,22 +632,10 @@
         </div>
       </div>
       <h2>How to install?</h2>
+      <h3>Linux</h3>
       <p>
-        For systems with xkeyboard-config, the code is already in repository (<a
-          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/456"
-          target="_blank"
-          rel="noreferrer"
-          >ru-typo</a
-        >,
-        <a
-          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/459"
-          target="_blank"
-          rel="noreferrer"
-          >rtu</a
-        >), so you can just wait until your system will update to latest version
-        of xkeyboard-config (≥2.38 for Russian augmented and ≥2.39 for
-        Russian-Tatar united) and set it using system tools (you should turn on
-        exotic layouts first).
+        The layouts are already present in the system and you can install them
+        through the settings app. You should turn exotic layouts on first.
       </p>
       <figure>
         <img
@@ -661,7 +649,20 @@
         </figcaption>
       </figure>
       <p>
-        Before that moment you can use files
+        If your system uses an older version of xkeyboard-config (<a
+          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/456"
+          target="_blank"
+          rel="noreferrer"
+          >&lt;2.38</a
+        >
+        for Russian augmented and
+        <a
+          href="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/459"
+          target="_blank"
+          rel="noreferrer"
+          >&lt;2.39</a
+        >
+        for Russian-Tatar united), you can use layout files
         <a
           href="https://github.com/800147/rtu/src"
           target="_blank"
@@ -675,6 +676,60 @@
           >from here</a
         >.
       </p>
+      <h3>Windows</h3>
+      <p>
+        To install the layouts described here in Windows download them from the
+        links below.
+      </p>
+      <figure>
+        <a
+          class="Document-Button"
+          href="./download/windows/ru+typo.zip"
+          download
+          >ru+typo.zip</a
+        >
+        <figcaption>Russian augmented</figcaption>
+      </figure>
+      <figure>
+        <a class="Document-Button" href="./download/windows/ru+tat.zip" download
+          >ru+tat.zip</a
+        >
+        <figcaption>Russian-Tatar united</figcaption>
+      </figure>
+      <p>
+        Unzip the downloaded archive, find the
+        <code>setup.exe</code> file and launch it. After you allow the file to
+        be executed and the installation is successful, the layout will be
+        selected as one of your system layouts.
+      </p>
+      <figure>
+        <img
+          src="./keyboard-install-windows.png"
+          alt="Keyboard layout installation process screenshot"
+          width="800"
+          height="600"
+        />
+        <figcaption>
+          Russian-Tatar united keyboard layout installation in Windows 11
+        </figcaption>
+      </figure>
+      <p>
+        But if you (as I am) want the Russian-Tatar layout to be available in
+        Windows out of the box, then support the following proposal in the
+        Microsoft Feedback Hub:
+      </p>
+      <figure>
+        <a
+          class="Document-Button"
+          style="--color: var(--blue-color)"
+          href="https://aka.ms/AAs5dld"
+          target="_blank"
+          >Feedback Hub</a
+        >
+        <figcaption>
+          Proposal of adding Russian-Tatar keyboard layout to Windows
+        </figcaption>
+      </figure>
     </main>
   </body>
 </html>

@@ -17,6 +17,7 @@
   font-family: sans-serif;
   width: 100%;
   user-select: none;
+  -webkit-user-select: none;
   margin: var(--size-l) 0 0;
 }
 
