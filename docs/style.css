@@ -4,21 +4,27 @@
   --kb-key-height: calc(3.25 * var(--kb-scale));
   --kb-key-border-radius: calc(0.5 * var(--kb-scale));
   --kb-key-gap: calc(0.375 * var(--kb-scale));
-  --kb-key-bg-color: rgb(222, 222, 222);
-  --kb-key-shadow-color: darkgray;
-  --kb-key-color: black;
-  --kb-special-key-bg-color: dimgrey;
-  --kb-special-key-shadow-color: #474747;
-  --kb-special-key-color: white;
-  font-size: calc(0.9 * var(--kb-scale));
+  --kb-key-bg-color: var(--light-3);
+  --kb-key-shadow-color: var(--light-4);
+  --kb-key-color: var(--dark-5);
+  --kb-special-key-bg-color: var(--dark-2);
+  --kb-special-key-shadow-color: var(--dark-3);
+  --kb-special-key-color: var(--light-1);
+  font-size: var(--kb-scale);
   display: grid;
   gap: var(--kb-key-gap);
   justify-content: center;
-  font-family: sans-serif;
+  font-family: "PT Sans", sans-serif;
   width: 100%;
   user-select: none;
   -webkit-user-select: none;
   margin: var(--size-l) 0 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .Kb {
+    --kb-key-shadow-color: var(--dark-1);
+  }
 }
 
 .Kb-Row {
@@ -43,7 +49,7 @@
   line-height: 1;
   flex-shrink: 0;
   --kb-shadow-color: var(--kb-key-shadow-color);
-  box-shadow: 0 calc(0.16 * var(--kb-scale)) var(--kb-shadow-color);
+  box-shadow: 0 calc(0.2 * var(--kb-scale)) var(--kb-shadow-color);
   white-space: nowrap;
 }
 
@@ -137,11 +143,27 @@
   border-left: none;
   border-bottom: none;
   box-sizing: content-box;
-  box-shadow: inset 0 calc(0.16 * var(--kb-scale)) var(--kb-shadow-color);
+  box-shadow: inset 0 calc(0.2 * var(--kb-scale)) var(--kb-shadow-color);
+}
+
+.Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+  --kb-key-bg-color: var(--brown-1);
+  --kb-key-shadow-color: var(--brown-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+    --kb-key-shadow-color: var(--brown-4);
+  }
+}
+
+.Kb-Row > ul:is([class]):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+  --kb-special-key-bg-color: var(--brown-3);
+  --kb-special-key-shadow-color: var(--brown-5);
 }
 
 .Kb-AddedSymbol {
-  color: green;
+  color: var(--green-5);
   text-shadow: white 1px 1px 1px, white -1px 1px 1px, white 1px -1px 1px,
     white -1px -1px 1px;
   font-weight: bold;
@@ -153,11 +175,16 @@
 }
 
 .Kb-RemovedSymbol {
-  color: red;
+  color: var(--red-4);
   text-decoration: line-through;
 }
 
 @media print {
+  .Kb,
+  .Kb * {
+    print-color-adjust: exact;
+  }
+
   .Kb {
     --kb-key-bg-color: white;
     --kb-key-shadow-color: transparent;
@@ -165,7 +192,6 @@
     --kb-special-key-bg-color: lightgrey;
     --kb-special-key-shadow-color: transparent;
     --kb-special-key-color: black;
-    print-color-adjust: exact;
   }
 
   .Kb-Row > ul:not([class]) {
