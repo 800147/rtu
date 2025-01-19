@@ -16,9 +16,9 @@
   position: fixed;
   inset: auto 0 0;
   height: 45vw;
-  max-height: 50lvh;
+  max-height: 50vh;
   user-select: none;
-  font-size: max(1rem, min(4vw, 4lvh));
+  font-size: max(1rem, min(4vw, 4vh));
 }
 
 .Keyboard p {
@@ -29,11 +29,12 @@
 }
 
 .Keyboard button {
+  margin: 0;
   background-color: var(--dark-3);
   background: none;
   border: none;
   box-sizing: border-box;
-  min-width: 9vw;
+  width: 9vw;
   color: var(--light-1);
   padding: 0;
   font-size: inherit;
