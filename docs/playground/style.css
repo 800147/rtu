@@ -38,6 +38,8 @@
   font-size: 1rem;
   line-height: 1rem;
   position: relative;
+  font-family: "PT Sans", fallback-for-PT-Sans-1, fallback-for-PT-Sans-2,
+    sans-serif;
 }
 
 .Keyboard button[data-chars]::before {
@@ -51,7 +53,7 @@
 }
 
 .Keyboard button[data-role] {
-  padding: 0 2vw;
+  padding: 0 2px;
 }
 
 .Keyboard button[data-role]::before {
@@ -104,8 +106,13 @@
 .Keyboard sup {
   position: absolute;
   transform: translateY(-30%);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   pointer-events: none;
+}
+
+.Keyboard img {
+  pointer-events: none;
+  margin: -2px 0;
 }
 
 .Keyboard[data-symbols] .Keyboard-Letter {

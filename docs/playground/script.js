@@ -96,6 +96,30 @@ const typeChar = (char) => {
   textarea.selectionEnd = selectionStart + 1;
 };
 
+const backspace = () => {
+  const { selectionStart, selectionEnd, value } = textarea;
+
+  if (selectionStart !== selectionEnd) {
+    textarea.value = `${value.slice(0, selectionStart)}${value.slice(
+      selectionEnd
+    )}`;
+    textarea.selectionEnd = selectionStart;
+
+    return;
+  }
+
+  if (selectionStart === 0) {
+    return;
+  }
+
+  textarea.value = `${value.slice(0, selectionStart - 1)}${value.slice(
+    selectionEnd
+  )}`;
+
+  textarea.selectionStart = selectionStart - 1;
+  textarea.selectionEnd = selectionStart - 1;
+};
+
 document.addEventListener("keypress", (e) => {
   if (document.activeElement !== textarea) {
     return;
@@ -115,6 +139,7 @@ document.addEventListener("keypress", (e) => {
 // Touch keyboard
 
 let pressTimeout = undefined;
+let repeatInterval = undefined;
 let activeElement = undefined;
 
 const getCurrentChar = () => {
@@ -142,12 +167,17 @@ const setActiveElement = (element) => {
 
 const clearPress = () => {
   clearTimeout(pressTimeout);
+  clearInterval(repeatInterval);
   pressTimeout = undefined;
+  repeatInterval = undefined;
 };
 
 const resetPress = () => {
   clearPress();
   pressTimeout = setTimeout(() => {
+    if (activeElement?.dataset.role === "backspace") {
+      repeatInterval = setInterval(backspace, 50);
+    }
     keyboard.dataset.longpress = true;
     keyboard.style = `--char: "${getCurrentChar()}"`;
   }, 500);
@@ -239,27 +269,7 @@ keyboard.addEventListener("pointerup", (e) => {
   }
 
   if (role === "backspace") {
-    const { selectionStart, selectionEnd, value } = textarea;
-
-    if (selectionStart !== selectionEnd) {
-      textarea.value = `${value.slice(0, selectionStart)}${value.slice(
-        selectionEnd
-      )}`;
-      textarea.selectionEnd = selectionStart;
-
-      return;
-    }
-
-    if (selectionStart === 0) {
-      return;
-    }
-
-    textarea.value = `${value.slice(0, selectionStart - 1)}${value.slice(
-      selectionEnd
-    )}`;
-
-    textarea.selectionStart = selectionStart - 1;
-    textarea.selectionEnd = selectionStart - 1;
+    backspace();
 
     return;
   }
