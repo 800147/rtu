@@ -1,0 +1,104 @@
+.Textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 5lh;
+  border: 1px solid var(--color);
+  border-radius: var(--size-m);
+  resize: vertical;
+}
+
+.Keyboard {
+  background-color: var(--dark-5);
+  padding: 1vw 0;
+  display: grid;
+  gap: 0;
+  text-align: center;
+  position: fixed;
+  inset: auto 0 0;
+  height: 45vw;
+  max-height: 50lvh;
+  user-select: none;
+}
+
+.Keyboard p {
+  margin: 0;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+}
+
+.Keyboard button {
+  background-color: var(--dark-3);
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  min-width: 9vw;
+  color: var(--light-1);
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1rem;
+  position: relative;
+}
+
+.Keyboard button[data-chars]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  inset: 2px;
+  background-color: var(--dark-3);
+  border-radius: 4px;
+}
+
+.Keyboard button[data-role] {
+  padding: 0 2vw;
+}
+
+.Keyboard button[data-role]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  inset: 1px;
+  border-radius: 9999px;
+  background-color: var(--dark-1);
+}
+
+.Keyboard button[data-role][data-active]::before {
+  background-color: var(--light-3);
+}
+
+.Keyboard button[data-chars=" "] {
+  width: 45vw;
+  color: var(--light-5);
+}
+
+.Keyboard button[data-chars][data-active]::before {
+  background-color: var(--light-4);
+}
+
+.Keyboard button[data-chars]:not([data-chars=" "])[data-active]::after {
+  content: var(--char);
+  display: block;
+  position: absolute;
+  inset: -110% 0 110%;
+  background-color: var(--dark-1);
+  border-radius: 9999px;
+  display: grid;
+  align-items: center;
+}
+
+.Keyboard[data-shift] button[data-chars]:not([data-chars=" "]) {
+  text-transform: uppercase;
+}
+
+.Keyboard[data-shift] button[data-role="shift"]::before {
+  background-color: var(--light-3);
+}
+
+.Keyboard sup {
+  position: absolute;
+  transform: translateY(-30%);
+  font-size: 0.625rem;
+  pointer-events: none;
+}
