@@ -86,6 +86,7 @@
   border-radius: 9999px;
   display: grid;
   align-items: center;
+  font-size: 2rem;
 }
 
 .Keyboard[data-shift] button[data-chars]:not([data-chars=" "]) {
@@ -96,9 +97,21 @@
   background-color: var(--light-3);
 }
 
+.Keyboard[data-symbols] button[data-role="symbols"]::before {
+  background-color: var(--light-3);
+}
+
 .Keyboard sup {
   position: absolute;
   transform: translateY(-30%);
   font-size: 0.625rem;
   pointer-events: none;
+}
+
+.Keyboard[data-symbols] .Keyboard-Letter {
+  display: none;
+}
+
+.Keyboard:not([data-symbols]) .Keyboard-Symbol {
+  display: none;
 }

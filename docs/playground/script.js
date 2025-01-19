@@ -194,7 +194,7 @@ keyboard.addEventListener("pointerdown", (e) => {
     return;
   }
 
-  keyboard.style = `--char: "${char}"`;
+  keyboard.style = char === '"' ? `--char: '${char}'` : `--char: "${char}"`;
 });
 
 keyboard.addEventListener("pointerup", (e) => {
@@ -215,7 +215,9 @@ keyboard.addEventListener("pointerup", (e) => {
   keyboard.removeEventListener("pointerover", onPointerOver);
   delete keyboard.dataset.longpress;
   const shiftWasPressed = keyboard.dataset.shift;
+  const symbolsMode = keyboard.dataset.symbols;
   delete keyboard.dataset.shift;
+  delete keyboard.dataset.symbols;
 
   if (char) {
     typeChar(char);
@@ -263,6 +265,14 @@ keyboard.addEventListener("pointerup", (e) => {
   }
 
   if (role === "symbols") {
+    if (symbolsMode) {
+      delete keyboard.dataset.symbols;
+
+      return;
+    }
+
+    keyboard.dataset.symbols = true;
+
     return;
   }
 
