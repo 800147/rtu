@@ -136,6 +136,8 @@ document.addEventListener("keypress", (e) => {
   typeChar(char);
 });
 
+// Touch keyboard
+
 document.addEventListener("keypress", () => {
   delete document.body.dataset.touch;
 });
@@ -169,8 +171,7 @@ textarea.addEventListener("blur", () => {
   delete document.body.dataset.textareaFocused;
 });
 
-// Touch keyboard
-
+let currentPointerId = undefined;
 let pressTimeout = undefined;
 let repeatInterval = undefined;
 let activeElement = undefined;
@@ -216,40 +217,19 @@ const resetPress = () => {
   }, 500);
 };
 
-const onPointerOver = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  const { isPrimary, target } = e;
-
-  if (!isPrimary) {
-    return;
-  }
-
-  setActiveElement(target);
-
-  const { chars, role } = target.dataset;
-
-  if (!chars && !role) {
-    return;
-  }
-
-  resetPress();
-};
-
 keyboard.addEventListener("pointerdown", (e) => {
   e.preventDefault();
   e.stopPropagation();
 
-  const { isPrimary, target } = e;
+  const { target, pointerId } = e;
 
-  if (!isPrimary) {
-    return;
+  if (pointerId !== currentPointerId) {
+    handleActiveButton();
   }
 
+  currentPointerId = pointerId;
   resetPress();
   setActiveElement(target);
-  keyboard.addEventListener("pointerover", onPointerOver);
 
   const char = getCurrentChar();
 
@@ -260,34 +240,26 @@ keyboard.addEventListener("pointerdown", (e) => {
   keyboard.style = char === '"' ? `--char: '${char}'` : `--char: "${char}"`;
 });
 
-keyboard.addEventListener("pointerup", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  const { isPrimary, target } = e;
-
-  if (!isPrimary) {
-    return;
-  }
-
-  setActiveElement(target);
+const handleActiveButton = () => {
   const char = getCurrentChar();
+
+  const target = activeElement;
 
   clearPress();
   clearActiveElement();
-  keyboard.removeEventListener("pointerover", onPointerOver);
   delete keyboard.dataset.longpress;
   const shiftWasPressed = keyboard.dataset.shift;
   const symbolsMode = keyboard.dataset.symbols;
   delete keyboard.dataset.shift;
   delete keyboard.dataset.symbols;
+  currentPointerId = undefined;
 
   if (char) {
     typeChar(char);
     return;
   }
 
-  const { role } = target.dataset;
+  const { role } = target?.dataset ?? {};
 
   if (role === "shift") {
     if (shiftWasPressed) {
@@ -324,19 +296,35 @@ keyboard.addEventListener("pointerup", (e) => {
 
     return;
   }
+};
+
+document.addEventListener("pointerup", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const { pointerId } = e;
+
+  if (pointerId !== currentPointerId) {
+    return;
+  }
+
+  handleActiveButton();
 });
 
 document.body.addEventListener("pointerleave", (e) => {
   e.preventDefault();
   e.stopPropagation();
 
-  const { isPrimary } = e;
+  const { pointerId } = e;
 
-  if (!isPrimary) {
+  if (pointerId !== currentPointerId) {
     return;
   }
 
   clearPress();
   clearActiveElement();
-  keyboard.removeEventListener("pointerover", onPointerOver);
+  delete keyboard.dataset.longpress;
+  delete keyboard.dataset.shift;
+  delete keyboard.dataset.symbols;
+  currentPointerId = undefined;
 });
