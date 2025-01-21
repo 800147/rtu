@@ -1,3 +1,40 @@
+const typeChar = (char) => {
+  const { selectionStart, selectionEnd, value } = textarea;
+
+  textarea.value = `${value.slice(0, selectionStart)}${char}${value.slice(
+    selectionEnd
+  )}`;
+
+  textarea.selectionStart = selectionStart + 1;
+  textarea.selectionEnd = selectionStart + 1;
+};
+
+const backspace = () => {
+  const { selectionStart, selectionEnd, value } = textarea;
+
+  if (selectionStart !== selectionEnd) {
+    textarea.value = `${value.slice(0, selectionStart)}${value.slice(
+      selectionEnd
+    )}`;
+    textarea.selectionEnd = selectionStart;
+
+    return;
+  }
+
+  if (selectionStart === 0) {
+    return;
+  }
+
+  textarea.value = `${value.slice(0, selectionStart - 1)}${value.slice(
+    selectionEnd
+  )}`;
+
+  textarea.selectionStart = selectionStart - 1;
+  textarea.selectionEnd = selectionStart - 1;
+};
+
+// Physical keyboard
+
 const RU_TYPO_KEYMAP = {
   Backquote: ["ё", "Ё", "`", "~"],
   Digit1: ["1", "!", "•", ""],
@@ -85,41 +122,6 @@ const getChar = ({ code, shiftKey }) => {
   return keymap[code]?.[layer] ?? keymap[code]?.[layer - 2];
 };
 
-const typeChar = (char) => {
-  const { selectionStart, selectionEnd, value } = textarea;
-
-  textarea.value = `${value.slice(0, selectionStart)}${char}${value.slice(
-    selectionEnd
-  )}`;
-
-  textarea.selectionStart = selectionStart + 1;
-  textarea.selectionEnd = selectionStart + 1;
-};
-
-const backspace = () => {
-  const { selectionStart, selectionEnd, value } = textarea;
-
-  if (selectionStart !== selectionEnd) {
-    textarea.value = `${value.slice(0, selectionStart)}${value.slice(
-      selectionEnd
-    )}`;
-    textarea.selectionEnd = selectionStart;
-
-    return;
-  }
-
-  if (selectionStart === 0) {
-    return;
-  }
-
-  textarea.value = `${value.slice(0, selectionStart - 1)}${value.slice(
-    selectionEnd
-  )}`;
-
-  textarea.selectionStart = selectionStart - 1;
-  textarea.selectionEnd = selectionStart - 1;
-};
-
 document.addEventListener("keypress", (e) => {
   if (document.activeElement !== textarea) {
     return;
@@ -136,45 +138,23 @@ document.addEventListener("keypress", (e) => {
   typeChar(char);
 });
 
-// Touch keyboard
-
-document.addEventListener("keypress", () => {
-  delete document.body.dataset.touch;
-});
-
-document.addEventListener("pointerdown", ({ pointerType }) => {
-  if (pointerType === "mouse") {
-    delete document.body.dataset.touch;
-
-    return;
-  }
-
-  document.body.dataset.touch = true;
-});
-
-const toCenter = () => {
-  if (document.body.dataset.textareaFocused && document.body.dataset.touch) {
-    textareaScroller.scrollIntoView({ behavior: "smooth", block: "center" });
-  }
-};
-
-textarea.addEventListener("focus", () => {
-  document.body.dataset.textareaFocused = true;
-  toCenter();
-});
-
-keyboard.addEventListener("focusin", (e) => {
-  textarea.focus();
-});
-
-textarea.addEventListener("blur", () => {
-  delete document.body.dataset.textareaFocused;
-});
+// On-screen keyboard
 
 let currentPointerId = undefined;
 let pressTimeout = undefined;
 let repeatInterval = undefined;
 let activeElement = undefined;
+
+const clearActiveElement = () => {
+  delete activeElement?.dataset?.active;
+  activeElement = undefined;
+};
+
+const setActiveElement = (element) => {
+  clearActiveElement();
+  element.dataset.active = true;
+  activeElement = element;
+};
 
 const getCurrentChar = () => {
   const { chars } = activeElement?.dataset ?? {};
@@ -186,17 +166,6 @@ const getCurrentChar = () => {
   const symbol = chars[keyboard.dataset.longpress ? 1 : 0] ?? chars[0];
 
   return keyboard.dataset.shift ? symbol.toUpperCase() : symbol;
-};
-
-const clearActiveElement = () => {
-  delete activeElement?.dataset?.active;
-  activeElement = undefined;
-};
-
-const setActiveElement = (element) => {
-  clearActiveElement();
-  element.dataset.active = true;
-  activeElement = element;
 };
 
 const clearPress = () => {
@@ -225,41 +194,6 @@ const resetPress = () => {
     keyboard.style = `--char: "${char}"`;
   }, 300);
 };
-
-keyboard.addEventListener("pointerdown", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  const { target, pointerId } = e;
-
-  if (pointerId !== currentPointerId) {
-    handleActiveButton();
-  }
-
-  currentPointerId = pointerId;
-  resetPress();
-  setActiveElement(target);
-
-  const char = getCurrentChar();
-
-  if (!char) {
-    return;
-  }
-
-  if (char === '"') {
-    keyboard.style = `--char: '"'`;
-
-    return;
-  }
-
-  if (char === "\\") {
-    keyboard.style = `--char: '\\005C'`;
-
-    return;
-  }
-
-  keyboard.style = `--char: "${char}"`;
-});
 
 const handleActiveButton = () => {
   const char = getCurrentChar();
@@ -321,7 +255,13 @@ const handleActiveButton = () => {
   }
 };
 
-document.addEventListener("pointerup", (e) => {
+const toCenter = () => {
+  if (document.body.dataset.textareaFocused && document.body.dataset.touch) {
+    textareaScroller.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+};
+
+const onRelease = (e) => {
   e.preventDefault();
   e.stopPropagation();
 
@@ -332,22 +272,69 @@ document.addEventListener("pointerup", (e) => {
   }
 
   handleActiveButton();
+};
+
+document.addEventListener("pointerup", onRelease);
+document.body.addEventListener("pointerleave", onRelease);
+document.body.addEventListener("pointercancel", onRelease);
+
+document.addEventListener("keydown", () => {
+  delete document.body.dataset.touch;
 });
 
-document.body.addEventListener("pointerleave", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
+document.addEventListener("pointerdown", ({ pointerType }) => {
+  if (pointerType === "mouse") {
+    delete document.body.dataset.touch;
 
-  const { pointerId } = e;
-
-  if (pointerId !== currentPointerId) {
     return;
   }
 
-  clearPress();
-  clearActiveElement();
-  delete keyboard.dataset.longpress;
-  delete keyboard.dataset.shift;
-  delete keyboard.dataset.symbols;
-  currentPointerId = undefined;
+  document.body.dataset.touch = true;
+});
+
+textarea.addEventListener("focus", () => {
+  document.body.dataset.textareaFocused = true;
+  toCenter();
+});
+
+// for Firefox
+keyboard.addEventListener("focusin", () => textarea.focus());
+
+textarea.addEventListener("blur", () => {
+  delete document.body.dataset.textareaFocused;
+});
+
+keyboard.addEventListener("pointerdown", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const { target, pointerId } = e;
+
+  if (pointerId !== currentPointerId) {
+    handleActiveButton();
+  }
+
+  currentPointerId = pointerId;
+  resetPress();
+  setActiveElement(target);
+
+  const char = getCurrentChar();
+
+  if (!char) {
+    return;
+  }
+
+  if (char === '"') {
+    keyboard.style = `--char: '"'`;
+
+    return;
+  }
+
+  if (char === "\\") {
+    keyboard.style = `--char: '\\005C'`;
+
+    return;
+  }
+
+  keyboard.style = `--char: "${char}"`;
 });
