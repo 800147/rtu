@@ -5,6 +5,21 @@
   border: 1px solid var(--color);
   border-radius: var(--size-m);
   resize: vertical;
+  background-color: var(--back-color);
+  font-family: "PT Sans", fallback-for-PT-Sans-1, fallback-for-PT-Sans-2,
+    sans-serif;
+  color: var(--color);
+  font-size: 1rem;
+  padding: 0.25em 0.5em;
+}
+
+.Textarea:focus-visible {
+  outline: var(--size-s) solid var(--color);
+  outline-offset: -1px;
+}
+
+.Textarea::placeholder {
+  color: var(--weak-color);
 }
 
 .Textarea-Wrapper {
@@ -157,5 +172,9 @@ body:not([data-textarea-focused][data-touch]) .Keyboard {
 
 .Keyboard[data-symbols] .Keyboard-Letter,
 .Keyboard:not([data-symbols]) .Keyboard-Symbol {
+  display: none;
+}
+
+body:not([data-clipboard-supported]) #copyButton {
   display: none;
 }

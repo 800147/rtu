@@ -338,3 +338,12 @@ keyboard.addEventListener("pointerdown", (e) => {
 
   keyboard.style = `--char: "${char}"`;
 });
+
+// Clipboard
+if (navigator.clipboard) {
+  document.body.dataset.clipboardSupported = true;
+}
+
+copyButton.addEventListener("click", () =>
+  navigator.clipboard.writeText(textarea.value)
+);
