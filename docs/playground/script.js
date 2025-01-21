@@ -213,7 +213,16 @@ const resetPress = () => {
       repeatInterval = setInterval(backspace, 50);
     }
     keyboard.dataset.longpress = true;
-    keyboard.style = `--char: "${getCurrentChar()}"`;
+
+    const char = getCurrentChar();
+
+    if (char === "\\") {
+      keyboard.style = `--char: '\\005C'`;
+
+      return;
+    }
+
+    keyboard.style = `--char: "${char}"`;
   }, 300);
 };
 
@@ -237,7 +246,19 @@ keyboard.addEventListener("pointerdown", (e) => {
     return;
   }
 
-  keyboard.style = char === '"' ? `--char: '${char}'` : `--char: "${char}"`;
+  if (char === '"') {
+    keyboard.style = `--char: '"'`;
+
+    return;
+  }
+
+  if (char === "\\") {
+    keyboard.style = `--char: '\\005C'`;
+
+    return;
+  }
+
+  keyboard.style = `--char: "${char}"`;
 });
 
 const handleActiveButton = () => {
