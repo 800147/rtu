@@ -214,7 +214,7 @@ const resetPress = () => {
     }
     keyboard.dataset.longpress = true;
     keyboard.style = `--char: "${getCurrentChar()}"`;
-  }, 500);
+  }, 300);
 };
 
 keyboard.addEventListener("pointerdown", (e) => {
@@ -243,15 +243,17 @@ keyboard.addEventListener("pointerdown", (e) => {
 const handleActiveButton = () => {
   const char = getCurrentChar();
 
+  if (!activeElement) {
+    return;
+  }
+
   const target = activeElement;
 
   clearPress();
   clearActiveElement();
   delete keyboard.dataset.longpress;
   const shiftWasPressed = keyboard.dataset.shift;
-  const symbolsMode = keyboard.dataset.symbols;
   delete keyboard.dataset.shift;
-  delete keyboard.dataset.symbols;
   currentPointerId = undefined;
 
   if (char) {
@@ -280,7 +282,7 @@ const handleActiveButton = () => {
   }
 
   if (role === "symbols") {
-    if (symbolsMode) {
+    if (keyboard.dataset.symbols) {
       delete keyboard.dataset.symbols;
 
       return;
