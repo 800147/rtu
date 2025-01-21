@@ -7,6 +7,16 @@
   resize: vertical;
 }
 
+.Textarea-Wrapper {
+  position: relative;
+  margin: var(--size-2xl) 0;
+}
+
+.Textarea-Scroller {
+  position: absolute;
+  inset: calc(min(45vw, 50vh) / 2) 0 calc(min(45vw, 50vh) / -2);
+}
+
 .Keyboard {
   background-color: var(--dark-5);
   padding: 0.125em 0;
@@ -15,10 +25,21 @@
   text-align: center;
   position: fixed;
   inset: auto 0 0;
-  height: 45vw;
-  max-height: 50vh;
+  height: min(45vw, 50vh);
   user-select: none;
   font-size: max(1rem, min(4vw, 4vh));
+  transition: transform 0.5s;
+  transform: translateY(0);
+  touch-action: none;
+}
+
+body {
+  padding-bottom: min(45vw, 50vh);
+  touch-action: pan-x pan-y;
+}
+
+body:not([data-textarea-focused][data-touch]) .Keyboard {
+  transform: translateY(100%);
 }
 
 .Keyboard p {
@@ -26,6 +47,19 @@
   display: flex;
   gap: 0;
   justify-content: center;
+}
+
+.Keyboard p:nth-child(1) button {
+  z-index: 4;
+}
+.Keyboard p:nth-child(2) button {
+  z-index: 3;
+}
+.Keyboard p:nth-child(3) button {
+  z-index: 2;
+}
+.Keyboard p:nth-child(4) button {
+  z-index: 1;
 }
 
 .Keyboard button {
@@ -91,6 +125,9 @@
   display: grid;
   align-items: center;
   font-size: 2em;
+}
+.Keyboard button[data-chars]:not([data-chars=" "])[data-active] {
+  z-index: 200;
 }
 
 .Keyboard[data-shift] button[data-chars]:not([data-chars=" "]) {

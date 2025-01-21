@@ -136,6 +136,39 @@ document.addEventListener("keypress", (e) => {
   typeChar(char);
 });
 
+document.addEventListener("keypress", () => {
+  delete document.body.dataset.touch;
+});
+
+document.addEventListener("pointerdown", ({ pointerType }) => {
+  if (pointerType === "mouse") {
+    delete document.body.dataset.touch;
+
+    return;
+  }
+
+  document.body.dataset.touch = true;
+});
+
+const toCenter = () => {
+  if (document.body.dataset.textareaFocused && document.body.dataset.touch) {
+    textareaScroller.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+};
+
+textarea.addEventListener("focus", () => {
+  document.body.dataset.textareaFocused = true;
+  toCenter();
+});
+
+keyboard.addEventListener("focusin", (e) => {
+  textarea.focus();
+});
+
+textarea.addEventListener("blur", () => {
+  delete document.body.dataset.textareaFocused;
+});
+
 // Touch keyboard
 
 let pressTimeout = undefined;
