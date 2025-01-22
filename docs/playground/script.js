@@ -347,3 +347,11 @@ if (navigator.clipboard) {
 copyButton.addEventListener("click", () =>
   navigator.clipboard.writeText(textarea.value)
 );
+
+// Search
+textarea.addEventListener("blur", (e) => {
+  const text = encodeURIComponent(e.target.value);
+
+  yaLink.href = `https://ya.ru/search/?text=${text}`;
+  gooLink.href = `https://www.google.com/search?q=${text}`;
+});

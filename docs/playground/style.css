@@ -24,7 +24,7 @@
 
 .Textarea-Wrapper {
   position: relative;
-  margin: var(--size-2xl) 0;
+  margin: var(--size-xl) 0;
 }
 
 .Textarea-Scroller {
@@ -175,6 +175,6 @@ body:not([data-textarea-focused][data-touch]) .Keyboard {
   display: none;
 }
 
-body:not([data-clipboard-supported]) #copyButton {
+body:not([data-clipboard-supported]) .CopyButtonWrapper {
   display: none;
 }
