@@ -147,19 +147,19 @@
 }
 
 .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
-  --kb-key-bg-color: var(--brown-1);
-  --kb-key-shadow-color: var(--brown-2);
+  --kb-key-bg-color: var(--blue-1);
+  --kb-key-shadow-color: var(--blue-2);
 }
 
 @media (prefers-color-scheme: dark) {
   .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
-    --kb-key-shadow-color: var(--brown-4);
+    --kb-key-shadow-color: var(--blue-4);
   }
 }
 
 .Kb-Row > ul:is([class]):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
-  --kb-special-key-bg-color: var(--brown-3);
-  --kb-special-key-shadow-color: var(--brown-5);
+  --kb-special-key-bg-color: var(--blue-3);
+  --kb-special-key-shadow-color: var(--blue-5);
 }
 
 .Kb-AddedSymbol {
@@ -189,16 +189,28 @@
     --kb-key-bg-color: white;
     --kb-key-shadow-color: transparent;
     --kb-key-color: black;
-    --kb-special-key-bg-color: lightgrey;
+    --kb-special-key-bg-color: var(--light-3);
     --kb-special-key-shadow-color: transparent;
     --kb-special-key-color: black;
   }
 
   .Kb-Row > ul:not([class]) {
-    border: 1.5px solid darkgray;
+    border: 1.5px solid var(--light-5);
   }
 
   .Kb-Row > ul:not([class]) > li {
     margin: 0 -1.5px;
+  }
+
+  .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+    --kb-key-bg-color: transparent;
+    --kb-key-shadow-color: transparent;
+    border: 1.5px solid var(--blue-3);
+  }
+
+  .Kb-Row > ul:is([class]):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+    --kb-special-key-bg-color: var(--blue-1);
+    --kb-special-key-shadow-color: transparent;
+    border: none;
   }
 }
