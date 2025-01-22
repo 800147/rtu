@@ -354,4 +354,6 @@ textarea.addEventListener("blur", (e) => {
 
   yaLink.href = `https://ya.ru/search/?text=${text}`;
   gooLink.href = `https://www.google.com/search?q=${text}`;
+  yaTranslate.href = `https://translate.yandex.ru/?text=${text}&source_lang=tt`;
+  gooTranslate.href = `https://translate.google.com/?text=${text}&sl=tt`;
 });
