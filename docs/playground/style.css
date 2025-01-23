@@ -50,7 +50,6 @@
 
 body {
   padding-bottom: min(45vw, 50vh);
-  touch-action: pan-x pan-y;
 }
 
 body:not([data-textarea-focused][data-touch]) .Keyboard {
