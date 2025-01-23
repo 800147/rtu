@@ -214,3 +214,135 @@
     border: none;
   }
 }
+
+/* On-screen keyboard */
+
+.Keyboard {
+  margin-top: var(--size-xl);
+  background-color: var(--dark-5);
+  padding: 0.125em 0;
+  display: grid;
+  gap: 0;
+  text-align: center;
+  height: 10rem;
+  user-select: none;
+  font-size: max(1rem, min(4vw, 4vh));
+  font-size: 1rem;
+  border-radius: 0.5em;
+}
+
+.Keyboard p {
+  margin: 0;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+}
+
+.Keyboard > p > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: var(--dark-3);
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  width: calc((100% - 0.25em) / 11);
+  color: var(--light-1);
+  padding: 0;
+  font-size: inherit;
+  line-height: 1rem;
+  position: relative;
+  font-family: "PT Sans", fallback-for-PT-Sans-1, fallback-for-PT-Sans-2,
+    sans-serif;
+  z-index: 1;
+}
+
+.Keyboard > p > span[data-chars]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  inset: 0.125em;
+  background-color: var(--dark-3);
+  border-radius: 0.25em;
+}
+
+.Keyboard > p > span[data-role] {
+  padding: 0 2px;
+}
+
+.Keyboard > p > span[data-role]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  inset: 0.0625em;
+  border-radius: 9999px;
+  background-color: var(--dark-1);
+}
+
+.Keyboard > p > span[data-chars=" "] {
+  width: calc((100% - 0.25em) / 11 * 5);
+  color: var(--light-5);
+}
+
+.Keyboard sup {
+  position: absolute;
+  transform: translateY(-0.5em);
+  color: var(--light-5);
+  font-size: 0.75em;
+  pointer-events: none;
+}
+
+.Keyboard img {
+  pointer-events: none;
+  width: 1.25em;
+  height: 1.25em;
+  margin: -0.5em auto;
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  .Keyboard {
+    background-color: transparent;
+    margin: -0.25em;
+    margin-top: calc(var(--size-xl) - 0.25em);
+  }
+}
+
+@media print {
+  .Keyboard {
+    background-color: transparent;
+    margin: -0.25em;
+    margin-top: calc(var(--size-xl) - 0.25em);
+  }
+
+  .Keyboard > p > span[data-chars]:not([data-chars=" "]) {
+    color: black;
+  }
+
+  .Keyboard > p > span[data-chars]::before {
+    background-color: transparent;
+    box-sizing: border-box;
+    border: 1.5px solid var(--light-5);
+  }
+
+  .Keyboard > p > span[data-role] {
+    color: black;
+  }
+
+  .Keyboard > p > span[data-role]::before {
+    background-color: var(--light-3);
+  }
+
+  .Keyboard > p > span[data-chars=" "] {
+  }
+
+  .Keyboard sup {
+  }
+
+  .Keyboard img {
+    filter: invert();
+  }
+}
