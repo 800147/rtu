@@ -336,12 +336,6 @@
     background-color: var(--light-3);
   }
 
-  .Keyboard > p > span[data-chars=" "] {
-  }
-
-  .Keyboard sup {
-  }
-
   .Keyboard img {
     filter: invert();
   }

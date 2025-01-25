@@ -34,7 +34,7 @@
 
 .Keyboard {
   background-color: var(--dark-5);
-  padding: 0.125em 0;
+  padding: 0.125em 0 0.5em;
   display: grid;
   gap: 0;
   text-align: center;
@@ -82,7 +82,7 @@ body:not([data-textarea-focused][data-touch]) .Keyboard {
   background: none;
   border: none;
   box-sizing: border-box;
-  width: 9vw;
+  width: calc((100% - 0.23em) / 11);
   color: var(--light-1);
   padding: 0;
   font-size: inherit;
@@ -121,7 +121,7 @@ body:not([data-textarea-focused][data-touch]) .Keyboard {
 }
 
 .Keyboard button[data-chars=" "] {
-  width: 45vw;
+  width: calc((100% - 0.23em) / 11 * 5);
   color: var(--light-5);
 }
 
