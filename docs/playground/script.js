@@ -213,6 +213,11 @@ const handleActiveButton = () => {
 
   if (char) {
     typeChar(char);
+
+    if (char === " ") {
+      delete keyboard.dataset.symbols;
+    }
+
     return;
   }
 
@@ -302,6 +307,12 @@ keyboard.addEventListener("focusin", () => textarea.focus());
 
 textarea.addEventListener("blur", () => {
   delete document.body.dataset.textareaFocused;
+
+  clearPress();
+
+  delete keyboard.dataset.longpress;
+  delete keyboard.dataset.shift;
+  delete keyboard.dataset.symbols;
 });
 
 keyboard.addEventListener("pointerdown", (e) => {
