@@ -83,7 +83,6 @@
 .Kb-ControlLKey,
 .Kb-SuperLKey,
 .Kb-AltLKey,
-.Kb-SpaceKey,
 .Kb-AltRKey,
 .Kb-SuperRKey,
 .Kb-MenuKey,
@@ -146,20 +145,17 @@
   box-shadow: inset 0 calc(0.2 * var(--kb-scale)) var(--kb-shadow-color);
 }
 
+ul.Kb-HighlightedKey,
 .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
   --kb-key-bg-color: var(--blue-1);
   --kb-key-shadow-color: var(--blue-2);
 }
 
 @media (prefers-color-scheme: dark) {
+  ul.Kb-HighlightedKey,
   .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
     --kb-key-shadow-color: var(--blue-4);
   }
-}
-
-.Kb-Row > ul:is([class]):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
-  --kb-special-key-bg-color: var(--blue-3);
-  --kb-special-key-shadow-color: var(--blue-5);
 }
 
 .Kb-AddedSymbol {
@@ -194,24 +190,19 @@
     --kb-special-key-color: black;
   }
 
-  .Kb-Row > ul:not([class]) {
+  .Kb-Row > ul:is(:not([class]), .Kb-SpaceKey) {
     border: 1.5px solid var(--light-5);
   }
 
-  .Kb-Row > ul:not([class]) > li {
+  .Kb-Row > ul:is(:not([class]), .Kb-SpaceKey) > li {
     margin: 0 -1.5px;
   }
 
+  ul.Kb-HighlightedKey,
   .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
     --kb-key-bg-color: transparent;
     --kb-key-shadow-color: transparent;
     border: 1.5px solid var(--blue-3);
-  }
-
-  .Kb-Row > ul:is([class]):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
-    --kb-special-key-bg-color: var(--blue-1);
-    --kb-special-key-shadow-color: transparent;
-    border: none;
   }
 }
 
