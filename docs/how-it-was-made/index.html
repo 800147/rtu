@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>
+      Как сделана русско-татарская объединённая раскладка клавиатуры
+    </title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://800147.github.io/document/src/document.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://800147.github.io/rtu/how-it-was-made/en"
+    />
+    <meta
+      name="description"
+      content="Из чего состоит и как была сделана русско-татарская объединённая раскладка клавиатуры"
+    />
+    <meta property="og:site_name" content="800147.github.io" />
+    <meta
+      property="og:title"
+      content="Русско-татарская объединённая раскладка клавиатуры"
+    />
+    <meta
+      property="og:description"
+      content="Из чего состоит и как была сделана русско-татарская объединённая раскладка клавиатуры"
+    />
+    <meta
+      property="og:image"
+      content="https://800147.github.io/rtu/preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+  </head>
+  <body class="Document">
+    <div class="Document-Header">
+      <nav class="Document-Breadcrumbs">
+        <ul>
+          <li><a href="../../">800147.github.io</a></li>
+          <li><a href="../">Рус-тат раскладка</a></li>
+        </ul>
+      </nav>
+      <ul class="Document-Lang">
+        <li>ru</li>
+        <li><a href="./en">en</a></li>
+      </ul>
+    </div>
+    <main>
+      <h1>Как сделана русско-татарская раскладка</h1>
+
+      <h2>Символы с английской раскладки</h2>
+
+      <p>
+        Создавая эту раскладку, в первую очередь я взял базовую русскую
+        раскладку и добавил в неё специальные символы из английской раскладки,
+        так как в современном общении и в работе часто бывают нужны символы
+        вроде собачки или решётки. Адреса электронной почты, Markdown, Regexp,
+        теги в соцсетях — для всего этого, и для многого другого, нужны символы,
+        которые есть в английской раскладке, но которые отсутствуют в русской.
+        Просто берём стандартную английскую раскладку, которая нарисована
+        на среднестатистической клавиатуре, и добавляем её специальные символы
+        (только те, которых нет в русской раскладке) в качестве альтернативных
+        символов на те же кнопки, на которых они располагаются в английской
+        раскладке.
+      </p>
+
+      <h3>ru + en typography</h3>
+      <!-- prettier-ignore -->
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки">
+        <div class="Kb-Row">
+          <ul><li>ё</li><li>Ё</li><li><span class="Kb-AddedSymbol">`</span></li><li><span class="Kb-AddedSymbol">~</span></li></ul>
+          <ul><li>1</li><li>!</li></ul>
+          <ul><li>2</li><li>"</li><li><span class="Kb-AddedSymbol">@</span></li></ul>
+          <ul><li>3</li><li>№</li><li><span class="Kb-AddedSymbol">#</span></li></ul>
+          <ul><li>4</li><li>;</li><li><span class="Kb-AddedSymbol">$</span></li></ul>
+          <ul><li>5</li><li>%</li></ul>
+          <ul><li>6</li><li>:</li><li><span class="Kb-AddedSymbol">^</span></li></ul>
+          <ul><li>7</li><li>?</li><li><span class="Kb-AddedSymbol">&</span></li></ul>
+          <ul><li>8</li><li>*</li><li>₽</li></ul>
+          <ul><li>9</li><li>(</li></ul>
+          <ul><li>0</li><li>)</li></ul>
+          <ul><li>-</li><li>_</li></ul>
+          <ul><li>=</li><li>+</li></ul>
+          <ul class="Kb-BackspaceKey"><li>Backspace</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-TabKey"><li>Tab</li></ul>
+          <ul><li>й</li><li>Й</li></ul>
+          <ul><li>ц</li><li>Ц</li></ul>
+          <ul><li>у</li><li>У</li></ul>
+          <ul><li>к</li><li>К</li></ul>
+          <ul><li>е</li><li>Е</li></ul>
+          <ul><li>н</li><li>Н</li></ul>
+          <ul><li>г</li><li>Г</li></ul>
+          <ul><li>ш</li><li>Ш</li></ul>
+          <ul><li>щ</li><li>Щ</li></ul>
+          <ul><li>з</li><li>З</li></ul>
+          <ul><li>х</li><li>Х</li><li><span class="Kb-AddedSymbol">[</span></li><li><span class="Kb-AddedSymbol">{</span></li></ul>
+          <ul><li>ъ</li><li>Ъ</li><li><span class="Kb-AddedSymbol">]</span></li><li><span class="Kb-AddedSymbol">}</span></li></ul>
+          <div class="Kb-EnterTopKey"></div>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-CapsLockKey"><li>Caps Lock</li></ul>
+          <ul><li>ф</li><li>Ф</li></ul>
+          <ul><li>ы</li><li>Ы</li></ul>
+          <ul><li>в</li><li>В</li></ul>
+          <ul><li>а</li><li>А</li></ul>
+          <ul><li>п</li><li>П</li></ul>
+          <ul><li>р</li><li>Р</li></ul>
+          <ul><li>о</li><li>О</li></ul>
+          <ul><li>л</li><li>Л</li></ul>
+          <ul><li>д</li><li>Д</li></ul>
+          <ul><li>ж</li><li>Ж</li></ul>
+          <ul><li>э</li><li>Э</li><li><span class="Kb-AddedSymbol">'</span></li></ul>
+          <ul><li>\</li><li>/</li><li><span class="Kb-AddedSymbol">|</span></li></ul>
+          <ul class="Kb-EnterBottomKey"><li>Return</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ShiftLKey"><li>Shift</li></ul>
+          <ul><li>/</li><li>|</li><li>|</li><li>¦</li></ul>
+          <ul><li>я</li><li>Я</li></ul>
+          <ul><li>ч</li><li>Ч</li></ul>
+          <ul><li>с</li><li>С</li></ul>
+          <ul><li>м</li><li>М</li></ul>
+          <ul><li>и</li><li>И</li></ul>
+          <ul><li>т</li><li>Т</li></ul>
+          <ul><li>ь</li><li>Ь</li></ul>
+          <ul><li>б</li><li>Б</li><li><span class="Kb-AddedSymbol">&lt;</span></li></ul>
+          <ul><li>ю</li><li>Ю</li><li><span class="Kb-AddedSymbol">&gt;</span></li></ul>
+          <ul><li>.</li><li>,</li></ul>
+          <ul class="Kb-ShiftRKey"><li>Shift</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ControlLKey"><li>Control</li></ul>
+          <ul class="Kb-SuperLKey"><li>Super</li></ul>
+          <ul class="Kb-AltLKey"><li>Alt</li></ul>
+          <ul class="Kb-SpaceKey"><li>Space</li></ul>
+          <ul class="Kb-AltRKey"><li>Alt Gr</li></ul>
+          <ul class="Kb-SuperRKey"><li>Super</li></ul>
+          <ul class="Kb-MenuKey"><li>Menu</li></ul>
+          <ul class="Kb-ControlRKey"><li>Control</li></ul>
+        </div>
+      </div>
+
+      <h2>Типографские символы</h2>
+
+      <p>
+        Дальше типографика. Исторически сложилась довольно странная ситуация:
+        классическая русская раскладка клавиатуры не содержит в себе
+        кавычек-ёлочкек, как и кавычек-лапок, которые используются в русском
+        языке. Зато в русской раскладке есть двойные и одинарные кавычки,
+        которые в русском языке не используются. Отсутствуют и некоторые другие
+        символы, которые просто необходимы для грамотного письма на русском
+        языке. Те же символы нужны и для других языков, чей алфавит основан
+        на кириллице (включая татарский). Надо это исправлять.
+      </p>
+      <p>
+        Можно было бы просто взять
+        <a href="https://ilyabirman.ru/typography-layout/" target="_blank"
+          >раскладку Бирмана</a
+        > — там всё есть, но она мне кажется избыточной. Наша цель —
+        в последствии, расположить поверх русских букв татарские символы,
+        поэтому буквенный блок хочется оставить максимально свободным.
+        К необходимому минимуму я отнёс кавычки двух типов, неразрывные пробелы
+        (в том числе нулевой ширины), тире, черту, разделяющую диапазон чисел
+        (дат, времени), апостроф, знак параграфа, маркер списка, ударение
+        и многоточие. И список этих символов, и их расположение, могут быть
+        спорными, но я готов к обсуждению.
+      </p>
+      <p>
+        Теперь добавим эти символы в нашу раскладку. Угловые скобки пришлось
+        сдвинуть с их места, потому что для русского языка кавычки куда важнее,
+        а место это очень удобное. Ну и одинарную кавычку тоже убираем просто
+        для того, чтобы освободить букву. К тому же, одинарной кавычке будет
+        вполне логично находиться рядом с двойной кавычкой.
+      </p>
+
+      <h3>ru-typo</h3>
+      <!-- prettier-ignore -->
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки">
+        <div class="Kb-Row">
+          <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
+          <ul><li>1</li><li>!</li><li><span class="Kb-AddedSymbol">•</span></li></ul>
+          <ul><li>2</li><li>"</li><li>@</li><li><span class="Kb-AddedSymbol">'</span></li></ul>
+          <ul><li>3</li><li>№</li><li>#</li><li><span class="Kb-AddedSymbol">§</span></li></ul>
+          <ul><li>4</li><li>;</li><li>$</li></ul>
+          <ul><li>5</li><li>%</li></ul>
+          <ul><li>6</li><li>:</li><li>^</li><li><span class="Kb-AddedSymbol"> ́</span></li></ul>
+          <ul><li>7</li><li>?</li><li>&</li></ul>
+          <ul><li>8</li><li>*</li><li>₽</li></ul>
+          <ul><li>9</li><li>(</li><li><span class="Kb-AddedSymbol">&lt;</span></li></ul>
+          <ul><li>0</li><li>)</li><li><span class="Kb-AddedSymbol">&gt;</span></li></ul>
+          <ul><li>-</li><li>_</li><li><span class="Kb-AddedSymbol">—</span></li><li><span class="Kb-AddedSymbol">–</span></li></ul>
+          <ul><li>=</li><li>+</li></ul>
+          <ul class="Kb-BackspaceKey"><li>Backspace</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-TabKey"><li>Tab</li></ul>
+          <ul><li>й</li><li>Й</li></ul>
+          <ul><li>ц</li><li>Ц</li></ul>
+          <ul><li>у</li><li>У</li></ul>
+          <ul><li>к</li><li>К</li></ul>
+          <ul><li>е</li><li>Е</li></ul>
+          <ul><li>н</li><li>Н</li></ul>
+          <ul><li>г</li><li>Г</li></ul>
+          <ul><li>ш</li><li>Ш</li></ul>
+          <ul><li>щ</li><li>Щ</li></ul>
+          <ul><li>з</li><li>З</li></ul>
+          <ul><li>х</li><li>Х</li><li>[</li><li>{</li></ul>
+          <ul><li>ъ</li><li>Ъ</li><li>]</li><li>}</li></ul>
+          <div class="Kb-EnterTopKey"></div>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-CapsLockKey"><li>Caps Lock</li></ul>
+          <ul><li>ф</li><li>Ф</li></ul>
+          <ul><li>ы</li><li>Ы</li></ul>
+          <ul><li>в</li><li>В</li></ul>
+          <ul><li>а</li><li>А</li></ul>
+          <ul><li>п</li><li>П</li></ul>
+          <ul><li>р</li><li>Р</li></ul>
+          <ul><li>о</li><li>О</li></ul>
+          <ul><li>л</li><li>Л</li></ul>
+          <ul><li>д</li><li>Д</li></ul>
+          <ul><li>ж</li><li>Ж</li></ul>
+          <ul><li>э</li><li>Э</li><li><span class="Kb-RemovedSymbol">'</span></li></ul>
+          <ul><li>\</li><li>/</li><li>|</li></ul>
+          <ul class="Kb-EnterBottomKey"><li>Return</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ShiftLKey"><li>Shift</li></ul>
+          <ul><li>/</li><li>|</li><li>|</li><li>¦</li></ul>
+          <ul><li>я</li><li>Я</li></ul>
+          <ul><li>ч</li><li>Ч</li></ul>
+          <ul><li>с</li><li>С</li></ul>
+          <ul><li>м</li><li>М</li></ul>
+          <ul><li>и</li><li>И</li></ul>
+          <ul><li>т</li><li>Т</li></ul>
+          <ul><li>ь</li><li>Ь</li></ul>
+          <ul><li>б</li><li>Б</li><li><span class="Kb-RemovedSymbol">&lt;</span><span class="Kb-AddedSymbol">«</span></li><li><span class="Kb-AddedSymbol">„</span></li></ul>
+          <ul><li>ю</li><li>Ю</li><li><span class="Kb-RemovedSymbol">&gt;</span><span class="Kb-AddedSymbol">»</span></li><li><span class="Kb-AddedSymbol">“</span></li></ul>
+          <ul><li>.</li><li>,</li><li><span class="Kb-AddedSymbol">…</span></li><li><span class="Kb-AddedSymbol">’</span></li></ul>
+          <ul class="Kb-ShiftRKey"><li>Shift</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ControlLKey"><li>Control</li></ul>
+          <ul class="Kb-SuperLKey"><li>Super</li></ul>
+          <ul class="Kb-AltLKey"><li>Alt</li></ul>
+          <ul class="Kb-SpaceKey"><li>Space</li><li></li><li><span class="Kb-AddedSymbol">No-Break Space</span></li><li><span class="Kb-AddedSymbol">Word Joiner</span></li></ul>
+          <ul class="Kb-AltRKey"><li>Alt Gr</li></ul>
+          <ul class="Kb-SuperRKey"><li>Super</li></ul>
+          <ul class="Kb-MenuKey"><li>Menu</li></ul>
+          <ul class="Kb-ControlRKey"><li>Control</li></ul>
+        </div>
+      </div>
+
+      <p>
+        В общем-⁠то, получилась хорошая раскладка для русского языка.
+        На её основе и будем делать русско-татарскую объединённую. А эту
+        сохраним, чтобы на её основе потом можно было и русско-башкирскую
+        объединённую и русско-удмуртскую объединённую и любую другую сделать.
+      </p>
+
+      <h2>Татарские буквы</h2>
+
+      <p>
+        Наконец, добавляем татарские буквы рядом со своими парами. Открывающиеся
+        квадратные и фигурные скобки пришлось сместить, потому что татарские
+        буквы тут важнее (в базовой русской раскладке мы эти символы оставим
+        на месте).
+      </p>
+
+      <h3>rtu</h3>
+      <!-- prettier-ignore -->
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки">
+        <div class="Kb-Row">
+          <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
+          <ul><li>1</li><li>!</li><li>•</li></ul>
+          <ul><li>2</li><li>"</li><li>@</li><li>'</li></ul>
+          <ul><li>3</li><li>№</li><li>#</li><li>§</li></ul>
+          <ul><li>4</li><li>;</li><li>$</li></ul>
+          <ul><li>5</li><li>%</li></ul>
+          <ul><li>6</li><li>:</li><li>^</li><li> ́</li></ul>
+          <ul><li>7</li><li>?</li><li>&</li></ul>
+          <ul><li>8</li><li>*</li><li>₽</li></ul>
+          <ul><li>9</li><li>(</li><li>&lt;</li></ul>
+          <ul><li>0</li><li>)</li><li>&gt;</li></ul>
+          <ul><li>-</li><li>_</li><li>—</li><li>–</li></ul>
+          <ul><li>=</li><li>+</li></ul>
+          <ul class="Kb-BackspaceKey"><li>Backspace</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-TabKey"><li>Tab</li></ul>
+          <ul><li>й</li><li>Й</li></ul>
+          <ul><li>ц</li><li>Ц</li></ul>
+          <ul><li>у</li><li>У</li><li><span class="Kb-AddedSymbol">ү</span></li><li><span class="Kb-AddedSymbol">Ү</span></li></ul>
+          <ul><li>к</li><li>К</li></ul>
+          <ul><li>е</li><li>Е</li></ul>
+          <ul><li>н</li><li>Н</li><li><span class="Kb-AddedSymbol">ң</span></li><li><span class="Kb-AddedSymbol">Ң</span></li></ul>
+          <ul><li>г</li><li>Г</li></ul>
+          <ul><li>ш</li><li>Ш</li></ul>
+          <ul><li>щ</li><li>Щ</li></ul>
+          <ul><li>з</li><li>З</li></ul>
+          <ul><li>х</li><li>Х</li><li><span class="Kb-RemovedSymbol">[</span><span class="Kb-AddedSymbol">һ</span></li><li><span class="Kb-RemovedSymbol">{</span><span class="Kb-AddedSymbol">Һ</span></li></ul>
+          <ul><li>ъ</li><li>Ъ</li><li>]</li><li>}</li></ul>
+          <div class="Kb-EnterTopKey"></div>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-CapsLockKey"><li>Caps Lock</li></ul>
+          <ul><li>ф</li><li>Ф</li></ul>
+          <ul><li>ы</li><li>Ы</li></ul>
+          <ul><li>в</li><li>В</li></ul>
+          <ul><li>а</li><li>А</li><li><span class="Kb-AddedSymbol">ә</span></li><li><span class="Kb-AddedSymbol">Ә</span></li></ul>
+          <ul><li>п</li><li>П</li></ul>
+          <ul><li>р</li><li>Р</li></ul>
+          <ul><li>о</li><li>О</li><li><span class="Kb-AddedSymbol">ө</span></li><li><span class="Kb-AddedSymbol">Ө</span></li></ul>
+          <ul><li>л</li><li>Л</li></ul>
+          <ul><li>д</li><li>Д</li></ul>
+          <ul><li>ж</li><li>Ж</li><li><span class="Kb-AddedSymbol">җ</span></li><li><span class="Kb-AddedSymbol">Җ</span></li></ul>
+          <ul><li>э</li><li>Э</li><li><span class="Kb-AddedSymbol">[</span></li><li><span class="Kb-AddedSymbol">{</span></li></ul>
+          <ul><li>\</li><li>/</li><li>|</li></ul>
+          <ul class="Kb-EnterBottomKey"><li>Return</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ShiftLKey"><li>Shift</li></ul>
+          <ul><li>/</li><li>|</li><li>|</li><li>¦</li></ul>
+          <ul><li>я</li><li>Я</li></ul>
+          <ul><li>ч</li><li>Ч</li></ul>
+          <ul><li>с</li><li>С</li></ul>
+          <ul><li>м</li><li>М</li></ul>
+          <ul><li>и</li><li>И</li></ul>
+          <ul><li>т</li><li>Т</li></ul>
+          <ul><li>ь</li><li>Ь</li></ul>
+          <ul><li>б</li><li>Б</li><li>«</li><li>„</li></ul>
+          <ul><li>ю</li><li>Ю</li><li>»</li><li>“</li></ul>
+          <ul><li>.</li><li>,</li><li>…</li><li>’</li></ul>
+          <ul class="Kb-ShiftRKey"><li>Shift</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ControlLKey"><li>Control</li></ul>
+          <ul class="Kb-SuperLKey"><li>Super</li></ul>
+          <ul class="Kb-AltLKey"><li>Alt</li></ul>
+          <ul class="Kb-SpaceKey"><li>Space</li><li></li><li>No-Break Space</li><li>Word Joiner</li></ul>
+          <ul class="Kb-AltRKey"><li>Alt Gr</li></ul>
+          <ul class="Kb-SuperRKey"><li>Super</li></ul>
+          <ul class="Kb-MenuKey"><li>Menu</li></ul>
+          <ul class="Kb-ControlRKey"><li>Control</li></ul>
+        </div>
+      </div>
+
+      <h2>Готово!</h2>
+
+      <p>На выходе имеем две раскладки. Одна основывается на другой.</p>
+
+      <h3>Русская (с типографскими знаками)</h3>
+      <!-- prettier-ignore -->
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки">
+        <div class="Kb-Row">
+          <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
+          <ul><li>1</li><li>!</li><li>•</li></ul>
+          <ul><li>2</li><li>"</li><li>@</li><li>'</li></ul>
+          <ul><li>3</li><li>№</li><li>#</li><li>§</li></ul>
+          <ul><li>4</li><li>;</li><li>$</li></ul>
+          <ul><li>5</li><li>%</li></ul>
+          <ul><li>6</li><li>:</li><li>^</li><li> ́</li></ul>
+          <ul><li>7</li><li>?</li><li>&</li></ul>
+          <ul><li>8</li><li>*</li><li>₽</li></ul>
+          <ul><li>9</li><li>(</li><li>&lt;</li></ul>
+          <ul><li>0</li><li>)</li><li>&gt;</li></ul>
+          <ul><li>-</li><li>_</li><li>—</li><li>–</li></ul>
+          <ul><li>=</li><li>+</li></ul>
+          <ul class="Kb-BackspaceKey"><li>Backspace</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-TabKey"><li>Tab</li></ul>
+          <ul><li>й</li><li>Й</li></ul>
+          <ul><li>ц</li><li>Ц</li></ul>
+          <ul><li>у</li><li>У</li></ul>
+          <ul><li>к</li><li>К</li></ul>
+          <ul><li>е</li><li>Е</li></ul>
+          <ul><li>н</li><li>Н</li></ul>
+          <ul><li>г</li><li>Г</li></ul>
+          <ul><li>ш</li><li>Ш</li></ul>
+          <ul><li>щ</li><li>Щ</li></ul>
+          <ul><li>з</li><li>З</li></ul>
+          <ul><li>х</li><li>Х</li><li>[</li><li>{</li></ul>
+          <ul><li>ъ</li><li>Ъ</li><li>]</li><li>}</li></ul>
+          <div class="Kb-EnterTopKey"></div>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-CapsLockKey"><li>Caps Lock</li></ul>
+          <ul><li>ф</li><li>Ф</li></ul>
+          <ul><li>ы</li><li>Ы</li></ul>
+          <ul><li>в</li><li>В</li></ul>
+          <ul><li>а</li><li>А</li></ul>
+          <ul><li>п</li><li>П</li></ul>
+          <ul><li>р</li><li>Р</li></ul>
+          <ul><li>о</li><li>О</li></ul>
+          <ul><li>л</li><li>Л</li></ul>
+          <ul><li>д</li><li>Д</li></ul>
+          <ul><li>ж</li><li>Ж</li></ul>
+          <ul><li>э</li><li>Э</li></ul>
+          <ul><li>\</li><li>/</li><li>|</li></ul>
+          <ul class="Kb-EnterBottomKey"><li>Return</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ShiftLKey"><li>Shift</li></ul>
+          <ul><li>/</li><li>|</li><li>|</li><li>¦</li></ul>
+          <ul><li>я</li><li>Я</li></ul>
+          <ul><li>ч</li><li>Ч</li></ul>
+          <ul><li>с</li><li>С</li></ul>
+          <ul><li>м</li><li>М</li></ul>
+          <ul><li>и</li><li>И</li></ul>
+          <ul><li>т</li><li>Т</li></ul>
+          <ul><li>ь</li><li>Ь</li></ul>
+          <ul><li>б</li><li>Б</li><li>«</li><li>„</li></ul>
+          <ul><li>ю</li><li>Ю</li><li>»</li><li>“</li></ul>
+          <ul><li>.</li><li>,</li><li>…</li><li>’</li></ul>
+          <ul class="Kb-ShiftRKey"><li>Shift</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ControlLKey"><li>Control</li></ul>
+          <ul class="Kb-SuperLKey"><li>Super</li></ul>
+          <ul class="Kb-AltLKey"><li>Alt</li></ul>
+          <ul class="Kb-SpaceKey"><li>Space</li><li></li><li>No-Break Space</li><li>Word Joiner</li></ul>
+          <ul class="Kb-AltRKey"><li>Alt Gr</li></ul>
+          <ul class="Kb-SuperRKey"><li>Super</li></ul>
+          <ul class="Kb-MenuKey"><li>Menu</li></ul>
+          <ul class="Kb-ControlRKey"><li>Control</li></ul>
+        </div>
+      </div>
+
+      <h3>Русская (с татарскими буквами)</h3>
+      <!-- prettier-ignore -->
+      <div class="Kb Document-Exclude" role="img" aria-label="Изображение раскладки">
+        <div class="Kb-Row">
+          <ul><li>ё</li><li>Ё</li><li>`</li><li>~</li></ul>
+          <ul><li>1</li><li>!</li><li>•</li></ul>
+          <ul><li>2</li><li>"</li><li>@</li><li>'</li></ul>
+          <ul><li>3</li><li>№</li><li>#</li><li>§</li></ul>
+          <ul><li>4</li><li>;</li><li>$</li></ul>
+          <ul><li>5</li><li>%</li></ul>
+          <ul><li>6</li><li>:</li><li>^</li><li> ́</li></ul>
+          <ul><li>7</li><li>?</li><li>&</li></ul>
+          <ul><li>8</li><li>*</li><li>₽</li></ul>
+          <ul><li>9</li><li>(</li><li>&lt;</li></ul>
+          <ul><li>0</li><li>)</li><li>&gt;</li></ul>
+          <ul><li>-</li><li>_</li><li>—</li><li>–</li></ul>
+          <ul><li>=</li><li>+</li></ul>
+          <ul class="Kb-BackspaceKey"><li>Backspace</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-TabKey"><li>Tab</li></ul>
+          <ul><li>й</li><li>Й</li></ul>
+          <ul><li>ц</li><li>Ц</li></ul>
+          <ul><li>у</li><li>У</li><li>ү</li><li>Ү</li></ul>
+          <ul><li>к</li><li>К</li></ul>
+          <ul><li>е</li><li>Е</li></ul>
+          <ul><li>н</li><li>Н</li><li>ң</li><li>Ң</li></ul>
+          <ul><li>г</li><li>Г</li></ul>
+          <ul><li>ш</li><li>Ш</li></ul>
+          <ul><li>щ</li><li>Щ</li></ul>
+          <ul><li>з</li><li>З</li></ul>
+          <ul><li>х</li><li>Х</li><li>һ</li><li>Һ</li></ul>
+          <ul><li>ъ</li><li>Ъ</li><li>]</li><li>}</li></ul>
+          <div class="Kb-EnterTopKey"></div>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-CapsLockKey"><li>Caps Lock</li></ul>
+          <ul><li>ф</li><li>Ф</li></ul>
+          <ul><li>ы</li><li>Ы</li></ul>
+          <ul><li>в</li><li>В</li></ul>
+          <ul><li>а</li><li>А</li><li>ә</li><li>Ә</li></ul>
+          <ul><li>п</li><li>П</li></ul>
+          <ul><li>р</li><li>Р</li></ul>
+          <ul><li>о</li><li>О</li><li>ө</li><li>Ө</li></ul>
+          <ul><li>л</li><li>Л</li></ul>
+          <ul><li>д</li><li>Д</li></ul>
+          <ul><li>ж</li><li>Ж</li><li>җ</li><li>Җ</li></ul>
+          <ul><li>э</li><li>Э</li><li>[</li><li>{</li></ul>
+          <ul><li>\</li><li>/</li><li>|</li></ul>
+          <ul class="Kb-EnterBottomKey"><li>Return</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ShiftLKey"><li>Shift</li></ul>
+          <ul><li>/</li><li>|</li><li>|</li><li>¦</li></ul>
+          <ul><li>я</li><li>Я</li></ul>
+          <ul><li>ч</li><li>Ч</li></ul>
+          <ul><li>с</li><li>С</li></ul>
+          <ul><li>м</li><li>М</li></ul>
+          <ul><li>и</li><li>И</li></ul>
+          <ul><li>т</li><li>Т</li></ul>
+          <ul><li>ь</li><li>Ь</li></ul>
+          <ul><li>б</li><li>Б</li><li>«</li><li>„</li></ul>
+          <ul><li>ю</li><li>Ю</li><li>»</li><li>“</li></ul>
+          <ul><li>.</li><li>,</li><li>…</li><li>’</li></ul>
+          <ul class="Kb-ShiftRKey"><li>Shift</li></ul>
+        </div>
+        <div class="Kb-Row">
+          <ul class="Kb-ControlLKey"><li>Control</li></ul>
+          <ul class="Kb-SuperLKey"><li>Super</li></ul>
+          <ul class="Kb-AltLKey"><li>Alt</li></ul>
+          <ul class="Kb-SpaceKey"><li>Space</li><li></li><li>No-Break Space</li><li>Word Joiner</li></ul>
+          <ul class="Kb-AltRKey"><li>Alt Gr</li></ul>
+          <ul class="Kb-SuperRKey"><li>Super</li></ul>
+          <ul class="Kb-MenuKey"><li>Menu</li></ul>
+          <ul class="Kb-ControlRKey"><li>Control</li></ul>
+        </div>
+      </div>
+
+      <h2>Вернуться к статье</h2>
+      <p>Чтобы вернуться к основной статье, пройдите по ссылке:</p>
+      <figure>
+        <a class="Document-Button" href="../">вернуться</a>
+      </figure>
+    </main>
+  </body>
+</html>
