@@ -21,6 +21,8 @@ xkb_symbols "typo" {
     key <AE10> { [ NoSymbol, NoSymbol,            greater                      ] };
     key <AE11> { [ NoSymbol, NoSymbol,             emdash,              endash ] };
 
+    key <BKSL> { [ NoSymbol, NoSymbol,                bar                      ] };
+
     key <AD11> { [ NoSymbol, NoSymbol,        bracketleft,           braceleft ] };
     key <AD12> { [ NoSymbol, NoSymbol,       bracketright,          braceright ] };
 

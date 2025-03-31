@@ -61,7 +61,7 @@ const RU_TYPO_KEYMAP = {
   KeyP: ["з", "З"],
   BracketLeft: ["х", "Х", "[", "{"],
   BracketRight: ["ъ", "Ъ", "]", "}"],
-  Backslash: ["\\", "/"],
+  Backslash: ["\\", "/", "|"],
   KeyA: ["ф", "Ф"],
   KeyS: ["ы", "Ы"],
   KeyD: ["в", "В"],
