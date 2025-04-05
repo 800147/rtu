@@ -102,7 +102,7 @@
 }
 
 .Kb-ShiftLKey {
-  width: calc(var(--kb-key-width) * 1.125);
+  width: calc(var(--kb-key-width) * 2.15);
 }
 
 .Kb-ControlLKey,
