@@ -21,6 +21,10 @@
   margin: var(--size-l) 0 0;
 }
 
+.Kb_formula {
+  --kb-scale: calc(min(1rem, 5vw));
+}
+
 @media (prefers-color-scheme: dark) {
   .Kb {
     --kb-key-shadow-color: var(--dark-1);
@@ -33,7 +37,7 @@
   justify-content: stretch;
 }
 
-.Kb-Row > * {
+.Kb-Row > :where(*:not(.Kb-NotButton)) {
   margin: 0;
   list-style-type: none;
   background-color: var(--kb-key-bg-color);
@@ -71,6 +75,20 @@
 .Kb-Row > * > :nth-child(4) {
   grid-area: altShift;
   text-align: right;
+}
+
+.Kb-FormulaSign {
+  width: 1em;
+  text-align: center;
+  font-size: calc(var(--kb-scale) * 2.4);
+}
+
+.Kb-FormulaLabel {
+  width: var(--kb-key-width);
+  text-align: center;
+  font-size: calc(var(--kb-scale) * 1.5);
+  padding-top: var(--kb-key-height);
+  margin-left: calc(var(--kb-key-width) * -1 - var(--kb-key-gap));
 }
 
 .Kb-BackspaceKey,
@@ -145,15 +163,15 @@
   box-shadow: inset 0 calc(0.2 * var(--kb-scale)) var(--kb-shadow-color);
 }
 
-ul.Kb-HighlightedKey,
-.Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+.Kb-HighlightedKey,
+:is(.Kb-Key, .Kb-Row > ul):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
   --kb-key-bg-color: var(--blue-1);
   --kb-key-shadow-color: var(--blue-2);
 }
 
 @media (prefers-color-scheme: dark) {
-  ul.Kb-HighlightedKey,
-  .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+  .Kb-HighlightedKey,
+  :is(.Kb-Key, .Kb-Row > ul):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
     --kb-key-shadow-color: var(--blue-4);
   }
 }
@@ -190,16 +208,16 @@ ul.Kb-HighlightedKey,
     --kb-special-key-color: black;
   }
 
-  .Kb-Row > ul:is(:not([class]), .Kb-SpaceKey) {
+  :is(.Kb-Key, .Kb-Row > ul):is(:not([class]), .Kb-SpaceKey) {
     border: 1.5px solid var(--light-5);
   }
 
-  .Kb-Row > ul:is(:not([class]), .Kb-SpaceKey) > li {
+  :is(.Kb-Key, .Kb-Row > ul):is(:not([class]), .Kb-SpaceKey) > li {
     margin: 0 -1.5px;
   }
 
-  ul.Kb-HighlightedKey,
-  .Kb-Row > ul:has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+  .Kb-HighlightedKey,
+  :is(.Kb-Key, .Kb-Row > ul):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
     --kb-key-bg-color: transparent;
     --kb-key-shadow-color: transparent;
     border: 1.5px solid var(--blue-3);
