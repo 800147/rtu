@@ -121,12 +121,27 @@ const keymap = RTU_KEYMAP;
 
 let raltPressed = false;
 
-document.addEventListener("keydown", ({ code }) => {
-  if (code !== "AltRight") {
+document.addEventListener("keydown", (e) => {
+  if (document.activeElement !== textarea) {
     return;
   }
 
-  raltPressed = true;
+  if (e.code === "AltRight") {
+    e.preventDefault();
+    raltPressed = true;
+
+    return;
+  }
+
+  const char = getChar(e);
+
+  if (char === undefined || e.ctrlKey) {
+    return;
+  }
+
+  e.preventDefault();
+
+  typeChar(char);
 });
 
 document.addEventListener("keyup", ({ code }) => {
@@ -144,7 +159,7 @@ const getChar = ({ code, shiftKey }) => {
 };
 
 document.addEventListener("keypress", (e) => {
-  if (document.activeElement !== textarea) {
+  if (!e.repeat || document.activeElement !== textarea) {
     return;
   }
 
