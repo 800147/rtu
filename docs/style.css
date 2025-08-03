@@ -164,14 +164,14 @@
 }
 
 .Kb-HighlightedKey,
-:is(.Kb-Key, .Kb-Row > ul):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+:is(.Kb-Key, .Kb-Row > *):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
   --kb-key-bg-color: var(--blue-1);
   --kb-key-shadow-color: var(--blue-2);
 }
 
 @media (prefers-color-scheme: dark) {
   .Kb-HighlightedKey,
-  :is(.Kb-Key, .Kb-Row > ul):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+  :is(.Kb-Key, .Kb-Row > *):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
     --kb-key-shadow-color: var(--blue-4);
   }
 }
@@ -208,16 +208,16 @@
     --kb-special-key-color: black;
   }
 
-  :is(.Kb-Key, .Kb-Row > ul):is(:not([class]), .Kb-SpaceKey) {
+  :is(.Kb-Key, .Kb-Row > *):is(:not([class]), .Kb-SpaceKey) {
     border: 1.5px solid var(--light-5);
   }
 
-  :is(.Kb-Key, .Kb-Row > ul):is(:not([class]), .Kb-SpaceKey) > li {
+  :is(.Kb-Key, .Kb-Row > *):is(:not([class]), .Kb-SpaceKey) > * {
     margin: 0 -1.5px;
   }
 
   .Kb-HighlightedKey,
-  :is(.Kb-Key, .Kb-Row > ul):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
+  :is(.Kb-Key, .Kb-Row > *):has(.Kb-AddedSymbol, .Kb-RemovedSymbol) {
     --kb-key-bg-color: transparent;
     --kb-key-shadow-color: transparent;
     border: 1.5px solid var(--blue-3);
@@ -240,14 +240,14 @@
   border-radius: 0.5em;
 }
 
-.Keyboard p {
+.Keyboard div {
   margin: 0;
   display: flex;
   gap: 0;
   justify-content: center;
 }
 
-.Keyboard > p > span {
+.Keyboard > div > span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +267,7 @@
   z-index: 1;
 }
 
-.Keyboard > p > span[data-chars]::before {
+.Keyboard > div > span[data-chars]::before {
   content: "";
   display: block;
   position: absolute;
@@ -277,11 +277,11 @@
   border-radius: 0.25em;
 }
 
-.Keyboard > p > span[data-role] {
+.Keyboard > div > span[data-role] {
   padding: 0 2px;
 }
 
-.Keyboard > p > span[data-role]::before {
+.Keyboard > div > span[data-role]::before {
   content: "";
   display: block;
   position: absolute;
@@ -291,7 +291,7 @@
   background-color: var(--dark-1);
 }
 
-.Keyboard > p > span[data-chars=" "] {
+.Keyboard > div > span[data-chars=" "] {
   width: calc((100% - 0.25em) / 11 * 5);
   color: var(--light-5);
 }
@@ -327,21 +327,21 @@
     margin-top: calc(var(--size-xl) - 0.25em);
   }
 
-  .Keyboard > p > span[data-chars]:not([data-chars=" "]) {
+  .Keyboard > div > span[data-chars]:not([data-chars=" "]) {
     color: black;
   }
 
-  .Keyboard > p > span[data-chars]::before {
+  .Keyboard > div > span[data-chars]::before {
     background-color: transparent;
     box-sizing: border-box;
     border: 1.5px solid var(--light-5);
   }
 
-  .Keyboard > p > span[data-role] {
+  .Keyboard > div > span[data-role] {
     color: black;
   }
 
-  .Keyboard > p > span[data-role]::before {
+  .Keyboard > div > span[data-role]::before {
     background-color: var(--light-3);
   }
 
